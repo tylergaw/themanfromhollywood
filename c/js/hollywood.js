@@ -58,8 +58,6 @@ var HOLLYWOOD = {
 		// Fade the header and footer
 		$('header, footer').addClass('background-player');
 		
-		// We just need to double check the audio is at the beginning
-		audio.currentTime = 0;
 		audio.play();
 		
 		direct('#scene-1', 'action', 900);
