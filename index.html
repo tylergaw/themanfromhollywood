@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>The Man From Hollywood</title>
+	<link rel="stylesheet" href="c/css/hollywood.css" />
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+	<script type="text/javascript" src="c/js/hollywood.js"></script>
+</head>
+<body>
+	<header>
+		<!-- 
+			Gradient text; the span is on top of the text with a partially transparent background gradient
+		     same technique as http://www.webdesignerwall.com/tutorials/css-gradient-text-effect but without the image.
+		-->
+		<h1><span></span>The Man From Hollywood</h1>
+		
+		<h2>
+			is a Kinetic Type experiment that makes use of Advanced CSS selectors and Webkit CSS properties*. The idea is based off of kinetic type videos that are usually created using After Effects, Flash, or other animation tools. Javascript is used, but minimally, really just to turn class names on and off. All of the animations are accomplished using CSS.
+		</h2>
+		<p>
+			<strong>*Disclaimer:</strong> This demo only works with Webkit Browsers; Safari, Chrome, etc.
+		</p>
+		<p>
+			<a href="http://tylergaw.com/blog/post/502100947/you-did-what-with-what">read the blog post</a> | <a href="themanfromhollywood.zip">download the source</a> | <a href="http://twitter.com/thegaw">follow @thegaw!</a>
+		</p>
+	</header>
+	
+	<hr />
+	
+	<section id="stage">
+		
+		<!-- This play button is one of my favorite things, no images, all CSS -->
+		<a id="play">
+			<span>
+				<i>Play</i>
+			</span>
+		</a>
+		
+		<!-- Created with a radial background gradient -->
+		<span id="vignette"></span>
+		
+		<dl>
+			<dt>Leo <!-- Bruce Willis --></dt>
+			<dd id="scene-1">
+				Begin
+			</dd>
+			
+			<dt>Chester <!-- Quentin Tarantino --></dt>
+			<dd id="scene-2">
+				<p class="act-1">Ok, Ted</p>
+				<p class="act-2">pay attention here. I'm gonna make two piles here on the bar.</p>
+				<p class="act-3"><strong>one pile,</strong> <span>which is</span> <em>yours</em></p>
+				<p class="act-4"><i>and</i> <strong>another pile,</strong> <span>which could<b></b></span> <em>be yours</em></p>
+				<p class="act-5"><span>What you have to realize is we're gonna do this thing</span> <strong>one way</strong> <em>or the other</em></p>
+				<p class="act-6"><i>Whether it's</i> <em>you</em> <strong>who holds the axe</strong> <span>or</span></p>
+				<p class="act-7"><i>a</i> <strong>mexican maid</strong> <span>or</span></p>
+				<p class="act-8"><strong>some bum</strong> <span><b>we</b> <b>yank</b> <b>off</b> <b>the</b> <b>street</b></span></p>
+			</dd>
+			<dt>Norman <!--Paul Calderon --></dt>
+			<dd id="scene-3">
+				
+				<!-- This here is a shit-ton of span elements, a css selector like p:word(3) might be pretty sweet, albeit not very practical -->
+				<p class="act-1"><span>You</span> <span>can</span> <span>buy a</span> <span>wh<em>ooooooo</em>le</span> <span>lotta soup</span> <span>with</span> <span>that pile</span></p>
+			</dd>
+			<dt>Chester</dt>
+			<dd id="scene-4">
+				<p class="act-1"><em>Shhhh!</em> <span>I'm</span> <span>the</span> <span>closer</span> <span>here</span> <span>alright?</span></p>
+				<p class="act-2"><strong><span>I've</span> <span>lost</span> <span>count,</span></strong> <strong><span>how</span> <span>much</span> <span>is on</span></strong> <strong><span>the</span> <span>bar</span> <span>here?</span></strong></p>
+			</dd>
+			<dt>Group</dt>
+			<dd id="scene-5">
+				600
+			</dd>
+			<dt>Chester</dt>
+			<dd id="scene-6">
+				<p class="act-1"><strong>OK</strong> <span><em>Ted</em> <b>Do</b> <b>you</b> <b>know</b></span> <span><b>how</b> <b>long</b> <b>it</b> <b>takes</b></span> <span><b>the</b> <b>average</b> <b>American</b></span> <span><b>to</b> <b>count</b> <b>to</b> <b>600?</b></span></p>
+			</dd>
+			<dt>Ted <!--Tim Roth --></dt>
+			<dd>......</dd>
+			<dt>Angela <!-- mmmmmmmm, Jennifer Beals. I am quite The L Word fan --></dt>
+			<dd id="scene-8">
+				<p class="act-1"><span>It's a</span> <span>rhetorical</span> <span>question</span> <span><em>Ted</em>.</span></p>
+			</dd>
+			<dt>Ted</dt>
+			<dd id="scene-9">
+				<p class="act-1"><span>No Sir</span></p>
+			</dd>
+			<dt>Chester</dt>
+			<dd id="scene-10">
+				<p class="act-1"><span>About one</span> <span>minute less</span> <span>than it takes</span> <span>to count to<em>...</em><em>700.</em></span></p>
+				<p class="act-2"><strong><span>Now, <em>Ted</em></span> <span><b>a</b> <b>person's</b> <b>life</b> <b>is</b> <b>filled</b> <b>with</b> <b>a</b> <b>zillion</b> <b>little</b> <b>experiences</b></span></strong> <strong><b>some</b> <b>of</b> <b>which</b> <b>are</b> <b>insignificant</b> <b>have</b> <b>no</b> <b>meaning,</b> <b>and</b> <b>you</b> <b>know</b> <b>you</b> <b>forget</b> <b>them.</b></strong></p>
+				<p class="act-3"><span>others which you will remember</span> <span>for the rest of your natural <strong>life.</strong></span></p>
+				<p class="act-4"><strong>Now</strong> <span>since</span> <span>what</span> <span>we are</span> <span>proposing</span> <span>here</span> <span>is so</span> <span>unusual.</span> <span>S<em>oooooo</em></span> <span>outside</span> <span>the norm,</span></p>
+				<p class="act-5"><span>that</span> <span>this</span> <span>is</span> <br /> <span>a</span> <span>good</span> <span>bet</span> <br /> <span>that</span> <span>this</span> <span>is</span> <br /> <span>going</span> <span>to</span> <span>be</span> <br /> <span>one</span> <span>of</span> <span>those</span> <br /> <span>incidences</span> <br /> <span>that</span> <span>sticks.</span></p>
+				<p class="act-6"><span>So</span> <span>since</span> <span>you're</span> <span>going</span> <span>to be</span> <span>stuck</span> <span>remembering</span> <span>this</span> <span>for the</span> <span>rest</span> <span>of</span> <span>your</span> <span>life</span> <span>you</span> <span>have</span> <span>to</span> <span>decide</span> <span>what</span> <span>that</span> <span>memory</span> <span>will</span> <span>be.</span></p>
+				<p class="act-7">So, <em>Ted</em></p>
+				<p class="act-8"><span>Are</span> <span>you</span> <span>going</span> <span>to</span> <span>remember</span> <span>for</span> <span>the</span> <span>next</span> <span>40</span> <span>years;</span> <br /> <strong><span>give</span> <span>or</span> <span>take</span> <span>a decade</span></strong></p>
+				<p class="act-9"><span>that</span> <span>you</span> <span>refused</span> <span>$1000</span> <br /> <span>for</span> <span>one</span> <span>second</span> <span>worth</span> <span>of</span> <span>work?</span></p>
+				<p class="act-10"><strong>or</strong> <span>that you</span> <strong>made</strong> <span>$1000 <br /> for one second worth of work?</span></p>
+			</dd>
+			<dt>Leo</dt>
+			<dd id="scene-11">
+				<p class="act-1">
+					Time
+				</p>
+			</dd>
+		</dl>
+	</section>
+	
+	<hr />
+
+	<footer>
+		<a href="http://www.tylergaw.com">tyler gaw doesn't sleep</a>
+	</footer>
+	
+	<audio id="track-main" autobuffer="autobuffer">
+		<source src="c/audio/hollywood.ogg" type="audio/ogg" />
+		<source src="c/audio/hollywood.wav" />
+	</audio>
+	<script type="text/javascript"> 
+		var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+	</script> 
+	<script type="text/javascript"> 
+		try { var pageTracker = _gat._getTracker("UA-1104578-1");pageTracker._trackPageview();} catch(err) {}
+	</script>
+</body>
+</html>

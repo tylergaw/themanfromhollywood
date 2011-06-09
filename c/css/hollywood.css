@@ -1,0 +1,2481 @@
+/*---------------------------------------------- general ---------------------------------------------*/
+
+* { margin: 0px; padding: 0px; }
+hr { display: none; }
+
+body
+{
+	font-family: helvetica, arial, 'liberation sans', sans-serif;
+	font-size: medium;
+	background-color: #100105;
+	color: #eee;
+}
+
+@font-face {
+	font-family: 'KomikaHandRegular';
+	src: local('Komika Hand Regular'), local('KomikaHand'), url('../fonts/Komika_Hand.ttf') format('truetype');
+}
+
+.background-player
+{
+	opacity: 0.1;
+	-webkit-transition: opacity 0.3s linear;
+}
+
+/*---------------------------------------------- header ----------------------------------------------*/
+
+header
+{
+	width: 1080px;
+	display: block;
+	margin: 0 auto;
+	padding: 30px 0 60px 0;
+	-webkit-transition: opacity 0.3s linear;
+}
+
+h1
+{
+	position: relative;
+	font-size: 280%;
+	text-shadow: #080002 2px 2px 2px;
+}
+
+/*---------------------------------- Title text gradient overlay -------------------------------------*/
+
+	h1 span
+	{
+		position: absolute;
+		display: block;
+		width: 100%;
+		height: 100%;
+		opacity: 0.7;
+		background: -webkit-gradient(linear, left top, left bottom, 
+									color-stop(0.0, rgba(16, 1, 5, 0)), 
+									color-stop(0.4, rgba(16, 1, 5, 0.2)),
+									color-stop(1, #100105));
+	}
+
+/*--------------------------------------------- Intro text -------------------------------------------*/
+
+h2
+{
+	font-size: 95%;
+	color: #FCABBA;
+	line-height: 1.8em;
+	text-shadow: #080002 2px 2px 1px;
+	padding: 2px 0 14px 6px;
+}
+
+/*--------------------------------------------- Other Crud -------------------------------------------*/
+
+header p:nth-of-type(1)
+{
+	width: 50%;
+	display: inline-block;
+	font-size: 75%;
+	color: #BDB0B3;
+	padding-left: 6px;
+}
+
+header p:nth-of-type(2)
+{
+	color: #FCABBA;
+	width: 38%;
+	font-size: 90%;
+	float: right;
+	text-align: right;
+	position: relative;
+	font-weight: bold;
+}
+
+	header a,
+	footer a
+	{
+		-webkit-border-radius: 1px;
+		padding: 0 3px;
+		background-color: transparent;
+		color: #BDB0B3;
+		font-size: 80%;
+		text-decoration: underline;
+		-webkit-transition: background-color 0.4s ease-out,
+							color 0.4s ease-out;
+	}
+
+		header a:hover,
+		footer a:hover
+		{
+			background-color: #BDB0B3;
+			color: #250911;
+			text-decoration: none;
+			-webkit-transition: background-color 0.2s ease-out,
+								color 0.2s ease-out;
+		}
+
+/*----------------------------------------------- Stage ----------------------------------------------*/
+
+#stage
+{
+	position: relative;
+	display: block;
+	width: 1080px;
+	height: 608px;
+	overflow: hidden;
+	margin: 0 auto;
+	-webkit-box-shadow: 0px 0px 15px #000;
+	background: -webkit-gradient(linear, left top, left bottom, 
+								from(rgba(130, 18, 40, 1)), 
+								to(rgba(53, 0, 10, 1)),
+								color-stop(50%, #6a0015));
+}
+
+	#stage.norman
+	{
+		background: -webkit-gradient(linear, left top, left bottom, 
+									from(#775924), 
+									to(#312106));
+	}
+	
+	#stage.everyone
+	{
+		background: -webkit-gradient(linear, left top, left bottom, 
+									from(#6955bb), 
+									to(#201a38));
+	}
+
+/*-------------------------------------------- Play Button -------------------------------------------*/
+
+	#stage #play
+	{
+		position: absolute;
+		display: block;
+		z-index: 101;
+		width: 1080px;
+		height: 608px;
+		cursor: pointer;
+		background-color: rgba(0, 0, 0, 0.85);
+		-webkit-transition: background-color 0.3s ease-out, 
+							opacity 0.3s linear;
+	}
+		
+		#stage #play.hide
+		{
+			display: none;
+		}
+		
+		#stage #play.offstage-player
+		{
+			opacity: 0;
+		}
+		
+		#stage #play.midstage-player
+		{
+			opacity: 0.5;
+		}
+		
+/*---------------------------------- Play Button Circle and Triangle ---------------------------------*/
+	
+		#stage #play span
+		{
+			position: relative;
+			cursor: pointer;
+			text-indent: -300em;
+
+			display: block;
+			margin: 0 auto;
+			top: 35%;
+			width: 134px;
+			height: 134px;
+			-webkit-border-radius: 125px;
+			border: 4px solid #bababa;
+			background: -webkit-gradient(linear, left top, left bottom, 
+										from(rgba(44, 44, 44, 0.8)), 
+										to(rgba(0, 0, 0, 0.8)),
+										color-stop(70%, #000));
+			
+			opacity: 0.6;
+			-webkit-transform: scale(0.8);
+			-webkit-transition: opacity 0.3s ease-out, 
+								-webkit-transform 0.15s ease-out;
+		}
+		
+			#stage #play span i
+			{
+				position: relative;
+				top: 38px;
+				left: 18px;
+				display: block;
+				width: 0px;
+				height: 0px;
+				border-color: transparent transparent #f2f2f2 transparent;
+				border-style: solid;
+				border-width: 0px 58px 58px 58px;
+				-webkit-transform: scaleY(0.60) rotate(90deg);
+			}
+		
+		#stage #play:hover 
+		{
+			background-color: rgba(0, 0, 0, 0.75);
+		}
+		
+		#stage #play:hover span,
+		#stage #play span:hover
+		{
+			opacity: 0.80;
+			-webkit-transform: scale(1);
+		}
+		
+/*------------------------------------------- Stage Vignette -----------------------------------------*/
+	
+	#stage #vignette
+	{
+		position: absolute;
+		display: block;
+		z-index: 100;
+		width: 1080px;
+		height: 608px;		
+		background: -webkit-gradient(radial, 540 304, 330, 540 304, 750,
+									from(rgba(0, 0, 0, 0)), 
+									to(rgba(0, 0, 0, 1)),
+									color-stop(85%, #000));
+	}
+
+/*-------------------------------------------- footer ------------------------------------------------*/
+
+footer
+{
+	display: block;
+	width: 1080px;
+	padding: 70px 0;
+	margin: 0 auto;
+	text-align: center;
+	-webkit-transition: opacity 0.3s linear;
+}
+
+	footer a
+	{
+		font-size: 80%;
+	}
+	
+
+/*-------------------------------------------- scenes ------------------------------------------------*/
+
+#stage dt 
+{
+	display: none;
+}
+
+#stage dl
+{
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	position: relative;
+	font-size: 230%;
+	font-weight: bold;
+	text-shadow: rgba(0, 0, 0, 0.6) 2px 2px 3px;
+}
+	#stage dd
+	{
+		position: absolute;
+		white-space: nowrap;
+		display: none;
+	}
+
+/*-------------------------------------------- scene 1 -----------------------------------------------*/
+
+	#stage #scene-1
+	{
+		display: block;
+		font-size: 380%;
+		top: 200px;
+		left: 32%;
+		opacity: 0;
+		-webkit-transform: scale(0.0);
+		-webkit-transition: opacity 0.1s ease, 
+							-webkit-transform 0.1s ease-out;
+	}
+	
+		#stage #scene-1.action
+		{
+			opacity: 1;
+			-webkit-transform: scale(1);
+		}
+		
+		#stage #scene-1.cut
+		{
+			opacity: 0.4;
+			-webkit-transform: scale(0);
+		}
+	
+/*-------------------------------------------- scene 2 -----------------------------------------------*/
+
+#stage #scene-2
+{
+	display: block;
+	-webkit-transition: top 0.1s linear, 
+						left 0.1s linear, 
+						-webkit-transform 0.1s linear;
+}
+
+	#stage #scene-2.exit-left
+	{
+		left: -300px;
+	}
+	
+	#stage #scene-2.exit
+	{
+		display: none;
+	}
+
+	#scene-2 p
+	{
+		display: none;
+		position: absolute;
+	}
+	
+	#scene-2.closeup-1
+	{
+		top: -110px;
+		left: 570px;
+		-webkit-transform: rotate(90deg);
+	}
+	
+/*----------------------------------------- scene 2, act 1 -------------------------------------------*/
+
+	#scene-2 .act-1
+	{
+		display: block;
+		top: 200px;
+		left: 1080px;
+		font-size: 380%;
+		overflow: hidden;
+		width: 260px;
+		-webkit-transition: left 0.1s linear;
+	}
+	
+		#scene-2 .act-1.position-1
+		{
+			left: 800px;
+			-webkit-transition: left 0.1s linear;
+		}
+		
+		#scene-2 .act-1.position-1.position-2
+		{
+			left: 540px;
+			width: 800px;
+			-webkit-transition: left 0.2s ease-in;
+		}
+		
+		#scene-2 .act-1.position-1.position-2.exit
+		{
+			left: -800px;
+		}
+		
+/*----------------------------------------- scene 2, act 2 -------------------------------------------*/
+	
+	#scene-2 .act-2
+	{
+		opacity: 0;
+		font-size: 1400%;
+		display: block;
+		top: 150px;
+		left: 960px;
+		-webkit-transition: left 2s linear, 
+							top 0.4s ease-in, 
+							opacity 0.2s linear, 
+							-webkit-transform 0.2s ease-in;
+	}
+	
+		#scene-2 .act-2.position-1
+		{
+			opacity: 1;
+			left: -14030px;
+		}
+		
+		#scene-2 .act-2.hide
+		{
+			opacity: 0;
+		}
+		
+		#scene-2 .act-2.exit
+		{
+			top: 700px;
+			left: -12000px;
+			-webkit-transform: rotate(-2deg);
+			opacity: 0;
+		}
+	
+/*----------------------------------------- scene 2, act 3 -------------------------------------------*/
+	
+	#scene-2 .act-3
+	{
+		display: block;
+		top: 70px;
+		left: 443px;
+		font-size: 190%;
+		-webkit-transform: rotate(-90deg);
+		letter-spacing: 1px;
+		overflow: hidden;
+		padding-top: 132px;
+		opacity: 1;
+		-webkit-transition: opacity 0.2s linear;
+	}
+		
+		#scene-2 .act-3.hide
+		{
+			opacity: 0;
+		}
+		
+		#scene-2 .act-3 strong
+		{
+			position: relative;
+			left: -290px;
+			-webkit-transition: left 0.1s linear;
+		}
+		
+		#scene-2 .act-3 span
+		{
+			position: relative;
+			display: block;
+			top: -143px;
+			left: 295px;
+			margin-bottom: -148px;
+			letter-spacing: -2px;
+			font-size: 105%;
+			-webkit-transition: left 0.2s linear;
+		}
+		
+		#scene-2 .act-3 em
+		{
+			position: relative;
+			display: block;
+			top: -148px;
+			font-style: normal;
+			font-size: 110%;
+			text-transform: uppercase;
+			letter-spacing: 0px;
+			color: #fff;
+			opacity: 0;
+			-webkit-transition: color 0.5s linear;
+		}
+		
+		#scene-2 .act-3 .action
+		{
+			left: 0;
+		}
+		
+		#scene-2 .act-3 em.action
+		{
+			opacity: 1;
+			color: #98d3f1;
+		}
+		
+		#scene-2 .act-3.exit
+		{
+			left: 900px;
+			-webkit-transform: rotate(-110deg);
+			-webkit-transition: left 0.2s ease-in, 
+								-webkit-transform 0.5s ease-in;
+		}
+		
+/*----------------------------------------- scene 2, act 4 -------------------------------------------*/
+		
+	#scene-2 .act-4
+	{
+		display: block;
+		top: -347px;
+		left: 375px;
+		font-size: 190%;
+		letter-spacing: 1px;
+		overflow: hidden;
+		padding-top: 132px;
+		-webkit-transform: rotate(-90deg);
+		opacity: 1;
+		-webkit-transition: opacity 0.2s linear;
+	}
+	
+		#scene-2 .act-4.hide
+		{
+			opacity: 0;
+			
+		}
+		
+		#scene-2 .act-4 i
+		{
+			display: none;
+		}
+		
+		#scene-2 .act-4 strong
+		{
+			position: relative;
+			left: 0px;
+			opacity: 0;
+			top: -20px;
+			-webkit-transition: top 0.1s linear, 
+								opacity 0.2s linear;
+		}
+			
+			#scene-2 .act-4 strong.action
+			{
+				top: 0;
+				opacity: 1;
+			}
+			
+		#scene-2 .act-4 span
+		{
+			position: relative;
+			display: block;
+			top: -143px;
+			left: 0px;
+			overflow: hidden;
+			width: 0;
+			margin-bottom: -148px;
+			letter-spacing: -2px;
+			font-size: 105%;
+		}
+			
+			#scene-2 .act-4 span.action
+			{
+				width: 210px;
+			}
+			
+				#scene-2 .act-4 span.action-2
+				{
+					width: 416px;
+				}
+			
+		
+			#scene-2 .act-4 span b
+			{
+				position: relative;
+				top: -11px;
+				left: 220px;
+				display: block;
+				width: 0px;
+				height: 6px;
+				background-color: #fff;
+				-webkit-box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.6);
+				-webkit-transition: width 0.15s ease-out;
+			}
+			
+				#scene-2 .act-4 span b.action
+				{
+					width: 180px;
+				}
+		
+		#scene-2 .act-4 em
+		{
+			position: relative;
+			display: block;
+			top: -148px;
+			font-style: normal;
+			font-size: 110%;
+			text-transform: uppercase;
+			letter-spacing: -12px;
+			color: #fff;
+			opacity: 0;
+			-webkit-transition: opacity 0.1s linear, 
+								color 0.5s ease-out, 
+								letter-spacing 0.3s ease-out;
+		}
+		
+			#scene-2 .act-4 em.action
+			{
+				opacity: 1;
+				color: #98d3f1;
+				letter-spacing: 0px;
+			}
+			
+		#scene-2 .act-4.exit
+		{
+			left: 900px;
+			-webkit-transform: rotate(-70deg);
+			-webkit-transition: left 0.2s ease-in, 
+								-webkit-transform 0.5s ease-in;
+		}
+			
+/*----------------------------------------- scene 2, act 5 -------------------------------------------*/
+
+#scene-2 .act-5
+{
+	display: none;
+	font-size: 2200%;
+	letter-spacing: -0.07em;
+	top: -11450px;
+	left: -11735px;
+	-webkit-transform: rotate(-90deg);
+}
+
+	#scene-2 .act-5.position-1
+	{
+		display: block;
+		top: -11450px;
+	}
+	
+	#scene-2 .act-5.position-2 { top: -10000px; }
+	#scene-2 .act-5.position-3 { top: -8500px; }
+	#scene-2 .act-5.position-4 { top: -7050px; }
+	#scene-2 .act-5.position-5 { top: -6000px; }
+	#scene-2 .act-5.position-6 { top: -5100px; }
+	#scene-2 .act-5.position-7 { top: -2600px; }
+	#scene-2 .act-5.position-8 { top: -100px; }
+	#scene-2 .act-5.position-9 { top: 1100px; }
+	#scene-2 .act-5.position-10 { top: 2300px; }
+	#scene-2 .act-5.position-11 { top: 4200px; }
+	
+	#scene-2 .act-5 span.exit 
+	{ 
+		opacity: 0; 
+	}
+	
+	#scene-2 .act-5.position-12
+	{
+		top: 700px;
+		left: -600px;
+		font-size: 175%;
+	}
+	
+		#scene-2 .act-5 strong
+		{
+			opacity: 0;
+			-webkit-transition: opacity 0.2s linear;
+		}
+		
+			#scene-2 .act-5 strong.action
+			{
+				opacity: 1;
+			}
+		
+		#scene-2 .act-5 em
+		{
+			opacity: 0;
+			font-style: normal;
+			-webkit-transition: opacity 0.5s linear;
+		}
+		
+			#scene-2 .act-5 em.action
+			{
+				opacity: 1;
+			}
+	
+	#scene-2 .act-5.exit
+	{
+		display: none;
+	}
+	
+/*----------------------------------------- scene 2, act 6 -------------------------------------------*/
+
+#scene-2 .act-6
+{
+	display: none;
+	-webkit-transform: rotate(-90deg);
+	left: 110px;
+	top: 570px;
+}
+
+	#scene-2 .act-6.exit
+	{
+		left: 1100px;
+		-webkit-transform: rotate(-60deg);
+		-webkit-transition: left 0.1s ease-in, 
+							-webkit-transform 0.2s ease-in;
+	}
+	
+	#scene-2 .act-6.action
+	{
+		display: block;
+	}
+
+	#scene-2 .act-6 i
+	{
+		display: none;
+	}
+	
+	#scene-2 .act-6 em
+	{
+		color: #98d3f1;
+		position: absolute;
+		font-style: normal;
+		text-transform: uppercase;
+		letter-spacing: -16px;
+		font-size: 552%;
+		left: 584px;
+		top: 180px;
+		-webkit-transition: top 0.2s linear;
+	}
+	
+		#scene-2 .act-6 em.action
+		{
+			top: 135px;
+		}
+		
+	
+	#scene-2 .act-6 strong
+	{
+		display: none;
+		position: absolute;
+		left: 584px;
+		top: 325px;
+		font-size: 128%;
+		letter-spacing: -1px;
+	}
+	
+		#scene-2 .act-6 strong.action
+		{
+			display: block;
+		}
+		
+	#scene-2 .act-6 span
+	{
+		opacity: 0;
+		position: absolute;
+		left: 584px;
+		top: 130px;
+		-webkit-transition: opacity 0.3s linear;
+	}
+		
+		#scene-2 .act-6 span.action
+		{
+			opacity: 1;
+		}
+
+/*----------------------------------------- scene 2, act 7 -------------------------------------------*/
+
+#scene-2 .act-7
+{
+	display: block;
+	-webkit-transform: rotate(-90deg);
+}
+	
+	#scene-2 .act-7.exit
+	{
+		left: 1200px;
+		-webkit-transform: rotate(-55deg);
+		-webkit-transition: left 0.1s ease-in, -webkit-transform 0.2s ease-in;
+	}
+	
+	#scene-2 .act-7 i
+	{
+		display: none;
+	}
+	
+	#scene-2 .act-7 strong
+	{
+		position: absolute;
+		font-style: normal;
+		font-size: 163%;
+		left: 15px;
+		top: 215px;
+		-webkit-transition: opacity 0.2s linear;
+		opacity: 0;
+	}
+	
+		#scene-2 .act-7 strong.action
+		{
+			opacity: 1;
+		}
+		
+	#scene-2 .act-7 span
+	{
+		opacity: 0;
+		position: absolute;
+		left: 18px;
+		top: 145px;
+		font-size: 220%;
+		-webkit-transition: opacity 0.3s linear;
+	}
+	
+		#scene-2 .act-7 span.action
+		{
+			opacity: 1;
+		}
+		
+/*----------------------------------------- scene 2, act 8 -------------------------------------------*/
+
+#scene-2 .act-8
+{
+	display: block;
+	-webkit-transform: rotate(-90deg);
+}
+
+	#scene-2 .act-8.exit
+	{
+		left: 1150px;
+		-webkit-transform: rotate(-63deg);
+		-webkit-transition: left 0.14s ease-in, -webkit-transform 0.25s ease-in;
+	}
+	
+	#scene-2 .act-8 strong
+	{
+		position:absolute;
+		top:145px;
+		left:18px;
+		font-size:215%;
+		opacity:0;
+		-webkit-transition: opacity 0.2s linear;
+	}
+	
+		#scene-2 .act-8 strong.action
+		{
+			opacity:1;
+		}
+	
+	#scene-2 .act-8 span
+	{
+		position:absolute;
+		display:block;
+		left:210px;
+		top:385px;
+		font-size:125%;
+		-webkit-transform: rotate(90deg);
+	}
+		#scene-2 .act-8 b
+		{
+			visibility:hidden;
+		}
+		
+		#scene-2 .act-8 b.action
+		{
+			visibility:visible;
+		}
+		
+/*-------------------------------------------- scene 3 -----------------------------------------------*/
+
+#stage #scene-3
+{
+	display:block;
+	font-family:'KomikaHandRegular';
+	font-weight:normal;
+	font-size:120%;
+	letter-spacing:1px;
+	color:#edead4; 
+}
+
+	#scene-3 .act-1
+	{
+		position:absolute;
+		top:70px;
+		left:120px;
+		-webkit-transform: rotate(-5deg);
+	}
+	
+		#scene-3 .act-1.action
+		{
+			-webkit-transition: top 4s linear, -webkit-transform 4s linear;
+			top:90px;
+			-webkit-transform: rotate(-8deg);
+		}
+		
+		#scene-3 .act-1.exit
+		{
+			-webkit-transition: opacity 0.3s linear;
+			opacity:0;
+		}
+	
+	#scene-3 .act-1 span
+	{
+		display:inline-block;
+		position:relative;
+		opacity:0;
+	}
+	
+	#scene-3 .act-1 span.action
+	{
+		opacity:0.7;
+	}
+	
+	#scene-3 .act-1 span:nth-child(1)
+	{
+		-webkit-transform: rotate(-6deg);
+	}
+	
+	#scene-3 .act-1 span:nth-child(2)
+	{
+		left:10px;
+		-webkit-transform: rotate(-1deg);
+	}
+	
+	#scene-3 .act-1 span:nth-child(3)
+	{
+		font-size:95%;
+		top:2px;
+		left:15px;
+		-webkit-transform: rotate(2deg);
+	}
+	
+	#scene-3 .act-1 span:nth-child(4)
+	{
+		top:-12px;
+		display:block;
+		-webkit-transform: rotate(-2deg);
+	}
+	
+		#scene-3 .act-1 span:nth-child(4) em
+		{
+			display:inline-block;
+			width:34px;
+			overflow:hidden;
+		}
+		
+		#scene-3 .act-1 span:nth-child(4) em.action
+		{
+			-webkit-transition: width 0.3s linear;
+			width:255px;
+		}
+		
+	#scene-3 .act-1 span:nth-child(5)
+	{
+		left:15px;
+		-webkit-transform: rotate(2deg);
+		display:block;
+	}
+	
+	#scene-3 .act-1 span:nth-child(6)
+	{
+		left:0px;
+		-webkit-transform: rotate(2deg);
+	}
+	
+	#scene-3 .act-1 span:nth-child(7)
+	{
+		top:-4px;
+		font-size:100%;
+		-webkit-transform: rotate(-4deg);
+	}
+	
+/*-------------------------------------------- scene 4 -----------------------------------------------*/
+
+#stage #scene-4
+{
+	display:block;
+}
+
+	#stage #scene-4.action
+	{
+		top:600px;
+		-webkit-transform: rotate(-55deg);
+		-webkit-transition: -webkit-transform 0.1s ease-out, top 0.1s ease-out;
+	}
+	
+	#stage #scene-4.cut
+	{
+		display:none;
+	}
+
+/*--------------------------------------- scene 4, act 1 ---------------------------------------------*/
+
+#scene-4 .act-1
+{
+	position:absolute;
+	top:-100px;
+	left:50px;
+	font-size:500%;
+	-webkit-transform: rotate(-8deg);
+}
+
+	#scene-4 .act-1.action
+	{
+		-webkit-transition: left 1s ease-in;
+		left:-1800px;
+	}
+
+	#scene-4 .act-1 em
+	{
+		position:relative;
+		letter-spacing:-0.05em;
+		font-style:normal;
+		display:inline-block;
+		left:-50px;
+		opacity:0;
+	}
+	
+		#scene-4 .act-1 em.action
+		{
+			-webkit-transition: opacity 0.2s linear, left 0.3s ease-out;
+			opacity:1;
+			left:0px;
+		}
+	
+	#scene-4 .act-1 span
+	{
+		display:inline-block;
+		position:relative;
+		-webkit-transform: scale(0);
+		-webkit-transform-origin: 0 100%;
+		-webkit-transition: -webkit-transform 0.2s ease-out;
+	}
+	
+		#scene-4 .act-1 span.action
+		{
+			-webkit-transform: scale(1);
+		}
+	
+		#scene-4 .act-1 span:nth-of-type(1)
+		{
+			top:60px;
+			left:-30px;
+		}
+		
+		#scene-4 .act-1 span:nth-of-type(2)
+		{
+			top:120px;
+			left:-60px;
+		}
+		
+		#scene-4 .act-1 span:nth-of-type(3)
+		{
+			top:180px;
+			left:-120px;
+		}
+		
+		#scene-4 .act-1 span:nth-of-type(4)
+		{
+			top:240px;
+			left:-180px;
+		}
+		
+		#scene-4 .act-1 span:nth-of-type(5)
+		{
+			top:300px;
+			left:-240px;
+		}
+
+/*--------------------------------------- scene 4, act 2 ---------------------------------------------*/
+
+#scene-4 .act-2
+{
+	position:absolute;
+	top:310px;
+	left:657px;
+	font-size:120%;
+	letter-spacing: -0.07em;
+	-webkit-transform: rotate(82deg);
+	line-height:1em;
+}
+
+	#scene-4 .act-2 strong
+	{
+		position:relative;
+		display:block;
+	}
+	
+	#scene-4 .act-2 strong:nth-of-type(1)
+	{
+		font-size:110%;
+	}
+	
+	#scene-4 .act-2 strong:nth-of-type(3)
+	{
+		font-size:120%;
+	}
+	
+		#scene-4 .act-2 span
+		{
+			position:relative;
+			left:400px;
+			-webkit-transition: left 0.2s ease-out;
+		}
+		
+		#scene-4 .act-2 span.action
+		{
+			left:0;
+		}
+		
+/*-------------------------------------------- scene 5 -----------------------------------------------*/
+
+#stage #scene-5
+{
+	display:none;
+	font-size:2300%;
+	letter-spacing:-0.1em;
+	top:-180px;
+	left:-80px;
+	position:absolute;
+}
+
+	#stage #scene-5.action
+	{
+		display:block;
+	}
+	
+/*-------------------------------------------- scene 6 -----------------------------------------------*/
+
+#stage #scene-6
+{
+	display:block;
+	position:absolute;
+}
+	
+	#scene-6 .act-1
+	{
+		position:relative;
+		display:none;
+	}
+	
+	#scene-6 .act-1.action
+	{
+		display:block;
+		-webkit-transform: scale(0.4);
+		left:290px;
+		top:50px;
+	}
+	
+		#scene-6 .act-1.closeup-1
+		{
+			top:-600px;
+			left:-1000px;
+			-webkit-transform: scale(6) rotate(45deg);
+			text-shadow: rgba(0, 0, 0, 0.4) 1px 1px 1px;
+		}
+		
+		#scene-6 .act-1.midshot
+		{
+			top:150px;
+			left:-30px;
+			-webkit-transform-origin: 0 100%;
+			-webkit-transform: scale(1.5);
+			text-shadow: rgba(0, 0, 0, 0.6) 1px 1px 1px;
+		}
+		
+		#scene-6 .act-1.exit
+		{
+			-webkit-transform-origin: 0 100%;
+			-webkit-transform: rotate(-40deg) scale(1.5);
+			-webkit-transition: -webkit-transform 0.3s ease-out;
+		}
+		
+		#scene-6 .act-1.off-stage
+		{
+			-webkit-transform: rotate(-90deg) scale(1.5);
+			-webkit-transition: -webkit-transform 1s ease-out;
+		}
+	
+	#scene-6 .act-1 strong
+	{
+		font-size:1000%;
+		letter-spacing:-0.125em;
+	}
+	
+	#scene-6 .act-1 em
+	{
+		color:#98d3f1;
+		font-style:normal;
+	}
+	
+	#scene-6 .act-1 span
+	{
+	
+		position:relative;
+		font-size:50%;
+		display:block;
+		letter-spacing:-0.085em;
+		-webkit-transform: rotate(-45deg);
+	}
+	
+	#scene-6 .act-1 span:nth-of-type(1)
+	{
+		top:-405px;
+		left:335px;
+	}
+	
+	#scene-6 .act-1 span:nth-of-type(2)
+	{
+		top:-412px;
+		left:353px;
+	}
+	
+	#scene-6 .act-1 span:nth-of-type(3)
+	{
+		top:-418px;
+		left:368px;
+	}
+	
+	#scene-6 .act-1 span:nth-of-type(4)
+	{
+		top:-424px;
+		left:384px;
+	}
+	
+	#scene-6 .act-1 span b,
+	#scene-6 .act-1 span em
+	{
+		opacity:0;
+	}
+	
+		#scene-6 .act-1 span b.action,
+		#scene-6 .act-1 span em.action
+		{
+			-webkit-transition: opacity 0.2s linear;
+			opacity:1;
+		}
+		
+/*-------------------------------------------- scene 8 -----------------------------------------------*/
+
+#stage #scene-8
+{
+	display:block;
+	position:absolute;
+}
+	
+	#scene-8 .act-1
+	{
+		position:relative;
+		font-size:80%;
+		left:115px;
+		top:140px;
+		line-height:1.1em;
+	}
+	
+	#scene-8 .act-1 span
+	{
+		display:none;
+	}
+	
+		#scene-8 .act-1 span.action
+		{
+			display:block;
+		}
+		
+		#scene-8 .act-1.exit
+		{
+			top: 50px;
+			left: -100px;
+			-webkit-transform: rotate(-40deg);
+			-webkit-transform-origin: 0 100%;
+			-webkit-transition: -webkit-transform 0.3s ease-out,
+								top 0.3s ease-out,
+								left 0.3s ease-out;
+		}
+	
+		#scene-8 .act-1 span em
+		{
+			color: #98d3f1;
+			font-style: normal;
+		}
+		
+/*-------------------------------------------- scene 9 -----------------------------------------------*/
+
+#stage #scene-9
+{
+	display: block;
+	position: absolute;
+}
+
+	#scene-9 .act-1
+	{
+		height: 225px;
+		width: 230px;
+		top: 173px;
+		left: 490px;
+		position: relative;
+		color: #98d3f1;
+		font-size: 200%;
+		text-shadow: none;
+		overflow: hidden;
+	}
+	
+		#scene-9 .act-1.exit
+		{
+			top: -100px;
+			left: 200px;
+			-webkit-transform-origin: 0 100%;
+			-webkit-transform: rotate(-40deg);
+			-webkit-transition: -webkit-transform 0.25s ease-out,
+								top 0.12s ease-out,
+								left 0.12s ease-out;
+		}
+		
+		#scene-9 .act-1.off-stage
+		{
+			top: -200px;
+			-webkit-transform: rotate(-50deg);
+		}
+	
+		#scene-9 .act-1 span
+		{
+			position: relative;
+			top: 290px;
+			left: 125px;
+			display: block;
+			-webkit-transform: rotate(55deg);
+		}
+		
+			#scene-9 .act-1 span.action
+			{
+				top: 80px;
+				left: -15px;
+				-webkit-transition: top 0.1s ease-out, 
+									left 0.1s ease-out;
+			}
+			
+/*-------------------------------------------- scene 10 ----------------------------------------------*/
+
+#stage #scene-10
+{
+	display: block;
+	position: absolute;
+}
+	#scene-10 p
+	{
+		display: none;
+	}
+	
+/*---------------------------------------- scene 10, act 1 -------------------------------------------*/
+	
+	#scene-10 .act-1
+	{
+		line-height: 1.4em;
+		position: relative;
+		font-size: 200%;
+		letter-spacing: -0.05em;
+		display: block;
+		left: 348px;
+		-webkit-transform-origin: 0 100%;
+		-webkit-transform: rotate(90deg);
+		
+	}
+		
+		#scene-10 .act-1.action
+		{
+			top: -182px;
+			left: 100px;
+			-webkit-transform: rotate(49deg);
+			-webkit-transition: -webkit-transform 0.3s ease-out,
+								top 0.3s ease-out,
+								left 0.3s ease-out;
+		}
+		
+		#scene-10 .act-1.action.exit
+		{
+			top: -550px;
+			left: -50px;
+			-webkit-transform: rotate(-90deg);
+			-webkit-transition: -webkit-transform 1s ease-out,
+								top 1s ease-out,
+								left 1s ease-out;
+		}
+		
+		#scene-10 .act-1 span
+		{
+			display: block;
+			position: relative;
+			left: 700px;
+		}
+		
+			#scene-10 .act-1 span.action
+			{
+				left: 0;
+				-webkit-transition: left 0.2s ease-out;
+			}
+		
+		#scene-10 .act-1 span em
+		{
+			font-style: normal;
+			-webkit-transition: opacity 0.2s linear;
+		}
+		
+		#scene-10 .act-1 span em:nth-of-type(1).exit
+		{
+			opacity: 0;
+		}
+		
+		#scene-10 .act-1 span em:nth-of-type(2)
+		{
+			opacity: 0;
+			position: relative;
+			left: -42px;
+		}
+		
+			#scene-10 .act-1 span em:nth-of-type(2).action
+			{
+				opacity: 1;
+			}
+			
+/*---------------------------------------- scene 10, act 2 -------------------------------------------*/
+
+	#scene-10 .act-2
+	{
+		top: 0;
+		position: absolute;
+		display: block;
+	}
+	
+		#scene-10 .act-2.action
+		{
+			top: -450px;
+			left: -225px;
+			-webkit-transition: top 3.5s ease-out,
+								left 3.5s ease-out;
+		}
+		
+		#scene-10 .act-2.exit
+		{
+			display: none;
+		}
+	
+		#scene-10 .act-2 em
+		{
+			font-style: normal;
+			color: #98d3f1;
+		}
+		
+		#scene-10 .act-2 strong
+		{
+			position: absolute;
+		}
+		
+		#scene-10 .act-2 strong:nth-of-type(1)
+		{
+			top: -45px;
+			left: -10px;
+			font-size: 715%;
+		}
+		
+			#scene-10 .act-2 strong:nth-of-type(1) span:nth-of-type(1)
+			{
+				letter-spacing: -0.04em;
+				display: none;
+			}
+			
+				#scene-10 .act-2 strong:nth-of-type(1) span:nth-of-type(1).action
+				{
+					display: block;
+				}
+			
+			#scene-10 .act-2 strong:nth-of-type(1) span:nth-of-type(2)
+			{
+				position: relative;
+				font-size: 50%;
+				display: block;
+				left: 30px;
+				top: 30px;
+			}
+			
+			#scene-10 .act-2 span:nth-of-type(2) b
+			{
+				-webkit-transform-origin: 0 100%;
+				-webkit-transform: rotate(-10deg) scale(0);
+				display: inline-block;
+				position: relative;
+			}
+			
+				#scene-10 .act-2 strong:nth-of-type(1) span:nth-of-type(2) b.action
+				{
+					-webkit-transform: rotate(-10deg) scale(1);
+					-webkit-transition: -webkit-transform 0.1s ease-out;
+				}
+			
+				#scene-10 .act-2 strong:nth-of-type(1) b:nth-of-type(1)
+				{
+					top: -80px;
+				}
+				
+				#scene-10 .act-2 strong:nth-of-type(1) b:nth-of-type(2)
+				{
+					left: -95px;
+					margin-right: -95px;
+				}
+				
+				#scene-10 .act-2 strong:nth-of-type(1) b:nth-of-type(3)
+				{
+					top: -68px;
+					left: -40px;
+					margin-right: -140px;
+				}
+				
+				#scene-10 .act-2 strong:nth-of-type(1) b:nth-of-type(4)
+				{
+					top: 130px;
+					left: -647px;
+					margin-right: -647px;
+				}
+				
+				#scene-10 .act-2 strong:nth-of-type(1) b:nth-of-type(5)
+				{
+					top: 45px;
+					left: -125px;
+					margin-right: -125px;
+					font-size: 50%;
+				}
+				
+				#scene-10 .act-2 strong:nth-of-type(1) b:nth-of-type(6)
+				{
+					top: 110px;
+					left: -90px;
+					margin-right: -90px;
+				}
+				
+				#scene-10 .act-2 strong:nth-of-type(1) b:nth-of-type(7)
+				{
+					top: -18px;
+					left: -26px;
+					margin-right: -80px;
+					font-size: 70%;
+				}
+				
+				#scene-10 .act-2 strong:nth-of-type(1) b:nth-of-type(8)
+				{
+					top: 60px;
+					left: -30px;
+					margin-right: -30px;
+				}
+				
+				#scene-10 .act-2 strong:nth-of-type(1) b:nth-of-type(9)
+				{
+					font-size: 38%;
+					top: 174px;
+					left: -805px;
+					margin-right: -805px;
+				}
+				
+				#scene-10 .act-2 strong:nth-of-type(1) b:nth-of-type(10)
+				{
+					top: 212px;
+					left: -12px;
+				}
+		
+		#scene-10 .act-2 strong:nth-of-type(2)
+		{
+			top: 560px;
+			left: 450px;
+			position: absolute;
+			display: block;
+			font-size: 350%;
+			letter-spacing: -0.08em;
+		}
+			
+			#scene-10 .act-2 strong:nth-of-type(2) b
+			{
+				display: inline-block;
+				position: relative;
+				-webkit-transform-origin: 0 100%;
+				-webkit-transform: rotate(-10deg) scale(0);
+			}
+			
+			#scene-10 .act-2 strong:nth-of-type(2) b.action
+			{
+				-webkit-transform: rotate(-10deg) scale(1);
+				-webkit-transition: -webkit-transform 0.1s ease-out;
+			}
+			
+			#scene-10 .act-2 strong:nth-of-type(2) b:nth-of-type(2)
+			{
+				top: -60px;
+			}
+			
+			#scene-10 .act-2 strong:nth-of-type(2) b:nth-of-type(3)
+			{
+				top: 20px;
+				left: -105px;
+				margin-right: -105px;
+			}
+			
+			#scene-10 .act-2 strong:nth-of-type(2) b:nth-of-type(4)
+			{
+				font-size: 70%;
+				top: 75px;
+				left: -325px;
+				margin-right: -325px;
+				letter-spacing: -0.05em;
+			}
+			
+			#scene-10 .act-2 strong:nth-of-type(2) b:nth-of-type(5)
+			{
+				font-size: 25%;
+				letter-spacing: -0.05em;
+				top: 25px;
+				left: -28px;
+				margin-right: -28px;
+			}
+			
+			#scene-10 .act-2 strong:nth-of-type(2) b:nth-of-type(6)
+			{
+				top: 155px;
+				left: -340px;
+				margin-right: -340px;
+			}
+			
+			#scene-10 .act-2 strong:nth-of-type(2) b:nth-of-type(7)
+			{
+				font-size: 25%;
+				letter-spacing: -0.05em;
+				top: 52px;
+				left: -142px;
+				margin-right: -142px;
+			}
+			
+			#scene-10 .act-2 strong:nth-of-type(2) b:nth-of-type(8)
+			{
+				font-size: 25%;
+				letter-spacing: -0.05em;
+				top: 42px;
+				left: -10px;
+				margin-right: -10px;
+			}
+			
+			#scene-10 .act-2 strong:nth-of-type(2) b:nth-of-type(9)
+			{
+				font-size: 35%;
+				letter-spacing: -0.08em;
+				top: 30px;
+				left: -110px;
+				margin-right: -110px;
+				-webkit-transform: rotate(80deg) scale(0);
+			}
+			
+				#scene-10 .act-2 strong:nth-of-type(2) b:nth-of-type(9).action
+				{
+					-webkit-transform: rotate(80deg) scale(1);
+					-webkit-transition: -webkit-transform 0.1s ease-out;
+				}
+			
+			#scene-10 .act-2 strong:nth-of-type(2) b:nth-of-type(10)
+			{
+				top: 230px;
+				left: -320px;
+				margin-right: -320px;
+			}
+			
+			#scene-10 .act-2 strong:nth-of-type(2) b:nth-of-type(11)
+			{
+				top: 217px;
+				left: -20px;
+				margin-right: -20px;
+			}
+			
+			#scene-10 .act-2 strong:nth-of-type(2) b:nth-of-type(12)
+			{
+				font-size: 75%;
+				top: 280px;
+				left: -459px;
+				margin-right: -459px;
+			}
+			
+			#scene-10 .act-2 strong:nth-of-type(2) b:nth-of-type(13)
+			{
+				font-size: 75%;
+				letter-spacing: -0.06em;
+				top: 295px;
+				left: -10px;
+				margin-right: -10px;
+			}
+			
+			#scene-10 .act-2 strong:nth-of-type(2) b:nth-of-type(14)
+			{
+				font-size: 80%;
+				letter-spacing: -0.06em;
+				top: 380px;
+				left: -360px;
+			}
+			
+/*---------------------------------------- scene 10, act 3 -------------------------------------------*/
+
+	#scene-10 .act-3
+	{
+		top: -10px;
+		left: -100px;
+		position: absolute;
+		display: none;
+		font-size: 1400%;
+		line-height: 0.8em;
+		letter-spacing: -0.06em;
+	}		
+		
+		#scene-10 .act-3.action
+		{
+			display: block;
+		}
+		
+			#scene-10 .act-3.position-1
+			{
+				left: -1700px;
+			}
+			
+			#scene-10 .act-3.position-2
+			{
+				left: -2800px;
+			}
+			
+			#scene-10 .act-3.position-3
+			{
+				left: -3700px;
+			}
+			
+			#scene-10 .act-3.position-4
+			{
+				left: -5850px;
+			}
+			
+			#scene-10 .act-3.position-5
+			{
+				left: 0px;
+				top: -250px;
+			}
+			
+			#scene-10 .act-3.position-6
+			{
+				left: -700px;
+				top: -250px;
+			}
+			
+			#scene-10 .act-3.position-7
+			{
+				left: -1400px;
+				top: -250px;
+			}
+			
+			#scene-10 .act-3.position-8
+			{
+				left: -2200px;
+				top: -250px;
+			}
+			
+			#scene-10 .act-3.position-9
+			{
+				left: -2950px;
+				top: -250px;
+			}
+			
+			#scene-10 .act-3.position-10
+			{
+				top: 30px;
+				left: -830px;
+				font-size: 400%;
+				line-height: 1.2em;
+				letter-spacing: -0.05em;
+			}
+			
+				#scene-10 .act-3.dance-motherfucker-dance
+				{
+					-webkit-transition: top 0.2s ease-out;
+				}
+			
+			#scene-10 .act-3.position-11
+			{
+				top: -80px;
+			}
+			
+			#scene-10 .act-3.position-12
+			{
+				top: -115px;
+			}
+			
+			#scene-10 .act-3.position-13
+			{
+				top: -150px;
+			}
+			
+			#scene-10 .act-3.position-14
+			{
+				top: -190px;
+			}
+			
+			#scene-10 .act-3.position-15
+			{
+				top: -235px;
+			}
+			
+			#scene-10 .act-3.position-16
+			{
+				top: -270px;
+			}
+			
+			#scene-10 .act-3.position-17
+			{
+				top: -305px;
+			}
+			
+			#scene-10 .act-3.position-18
+			{
+				top: -345px;
+			}
+			
+			#scene-10 .act-3.position-19
+			{
+				top: -385px;
+			}
+		
+		#scene-10 .act-3 span
+		{
+			display: block;
+		}
+			
+			#scene-10 .act-3 strong
+			{
+				opacity: 0;
+			}
+			
+				#scene-10 .act-3 strong.action
+				{
+					opacity: 1;
+					-webkit-transition: opacity 0.2s linear;
+				}
+				
+/*---------------------------------------- scene 10, act 4 -------------------------------------------*/
+
+	#scene-10 .act-4
+	{
+		display: block;
+		position: relative;
+		text-align: right;
+		width: 1080px;
+		right: 5px;
+		top: 580px;
+		-webkit-transition: top 0.2s ease-out;
+	}
+	
+		#scene-10 .act-4.position-1
+		{
+			top: 190px;
+		}
+		
+		#scene-10 .act-4.position-2
+		{
+			top: 155px;
+		}
+		
+		#scene-10 .act-4.position-3
+		{
+			top: 120px;
+		}
+		
+		#scene-10 .act-4.position-4
+		{
+			top: 80px;
+		}
+		
+		#scene-10 .act-4.position-5
+		{
+			top: 35px;
+		}
+		
+		#scene-10 .act-4.position-6
+		{
+			top: 0px;
+		}
+		
+		#scene-10 .act-4.position-7
+		{
+			top: -35px;
+		}
+		
+		#scene-10 .act-4.position-8
+		{
+			top: -75px;
+		}
+		
+		#scene-10 .act-4.position-9
+		{
+			top: -115px;
+		}
+		
+		#scene-10 .act-4.position-10
+		{
+			top: -155px;
+		}
+		
+		#scene-10 .act-4.position-11
+		{
+			top: -195px;
+		}
+		
+		#scene-10 .act-4.exit
+		{
+			opacity: 0;
+		}
+		
+		#scene-10 .act-4 strong
+		{
+			top: -255px;
+			right: -125px;
+			text-transform: uppercase;
+			position: absolute;
+			display: block;
+			font-size: 400%;
+			-webkit-transform: rotate(-90deg);
+		}
+		
+		#scene-10 .act-4 span
+		{
+			font-size: 120%;
+			line-height: 0.9em;
+			display: block;
+			position: relative;
+		}
+		
+			#scene-10 .act-4 span:nth-of-type(8) em
+			{
+				display: inline-block;
+				font-style: normal;
+				width: 28px;
+				overflow: hidden;
+			}
+				
+				#scene-10 .act-4 span:nth-of-type(8) em.action
+				{
+					width: 160px;
+					-webkit-transition: width 0.3s ease-out;
+				}
+
+/*---------------------------------------- scene 10, act 5 -------------------------------------------*/
+
+	#scene-10 .act-5
+	{
+		display: block;
+		position: absolute;
+		top: 40px;
+		left: 160px;
+		font-size: 600%;
+		line-height: 0.8em;
+		-webkit-transform-origin: 0 100%;
+		-webkit-transform: rotate(-10deg);
+	}
+		
+		#scene-10 .act-5.exit
+		{
+			display: none;
+		}
+		
+		#scene-10 .act-5.position-1
+		{
+			top: -1900px;
+			left: 100px;
+			font-size: 1600%;
+			-webkit-transform: rotate(-2deg);			
+		}
+		
+		#scene-10 .act-5.position-1.position-2
+		{
+			top: -1800px;
+			left: -700px;
+		}
+		
+		#scene-10 .act-5.position-1.position-3
+		{
+			top: -1600px;
+			left: -1400px;
+			font-size: 1400%;
+		}
+		
+		#scene-10 .act-5.position-1.position-4
+		{
+			top: -1000px;
+			left: -180px;
+			font-size: 750%;
+		}
+		
+		#scene-10 .act-5.position-1.position-5
+		{
+			top: -8875px;
+			left: -5635px;
+			font-size: 5600%;
+			text-shadow: none;
+		}
+		
+		#scene-10 .act-5.position-1.position-6
+		{
+			top: -8975px;
+			-webkit-transition: top 0.2s ease-out;
+		}
+	
+		#scene-10 .act-5 span
+		{
+			letter-spacing: -0.075em;
+			display: inline-block;
+			position: relative;
+			opacity: 0;
+		}
+		
+			#scene-10 .act-5 span.action
+			{
+				opacity: 1;
+			}
+		
+			#scene-10 .act-5 span:nth-of-type(1)
+			{
+				top: -20px;
+				left: 25px;
+			}
+			
+			#scene-10 .act-5 span:nth-of-type(4)
+			{
+				top: -20px;
+				left: 30px;
+			}
+			
+			#scene-10 .act-5 span:nth-of-type(6)
+			{
+				top: 10px;
+			}
+			
+			#scene-10 .act-5 span:nth-of-type(8)
+			{
+				top: 10px;
+			}
+			
+			#scene-10 .act-5 span:nth-of-type(9)
+			{
+				top: 10px;
+				left: 15px;
+			}
+			
+			#scene-10 .act-5 span:nth-of-type(10)
+			{
+				left: -20px;
+			}
+			
+			#scene-10 .act-5 span:nth-of-type(12)
+			{
+				top: 20px;
+			}
+			
+			#scene-10 .act-5 span:nth-of-type(13)
+			{
+				top: 20px;
+			}
+			
+			#scene-10 .act-5 span:nth-of-type(14)
+			{
+				font-size: 80%;
+			}
+			
+			#scene-10 .act-5 span:nth-of-type(15)
+			{
+				top: 20px;
+				left: -10px;
+			}
+			
+			#scene-10 .act-5 span:nth-of-type(16)
+			{
+				top: 30px;
+				left: -30px;
+				font-size: 110%;
+				letter-spacing: -0.07em;
+			}
+			
+			#scene-10 .act-5 span:nth-of-type(17)
+			{
+				top: 30px;
+				font-size: 90%;
+			}
+			
+			#scene-10 .act-5 span:nth-of-type(18)
+			{
+				top: 50px;
+				font-size: 110%;
+				letter-spacing: -0.07em;
+			}
+			
+/*---------------------------------------- scene 10, act 6 -------------------------------------------*/
+
+	#scene-10 .act-6
+	{
+		display: block;
+		position: absolute;
+		font-size: 200%;
+		text-shadow: #2C000B 1px 1px 1px;
+		letter-spacing: -0.08em;
+		top: -133px;
+		left: 281px;
+		-webkit-transform: scale(0.135) rotate(-1.5deg);
+	}
+	
+		#scene-10 .act-6.exit
+		{
+			display: none;
+		}
+		
+		#scene-10 .act-6.position-1
+		{
+			top: -40px;
+			left: 315px;
+			-webkit-transform: scale(1) rotate(0deg);
+		}
+		
+		#scene-10 .act-6.position-2
+		{
+			top: -100px;
+			-webkit-transition: top 0.2s ease-out;
+		}
+		
+		#scene-10 .act-6 span
+		{
+			display: inline-block;
+			position: relative;
+			-webkit-transform: scale(0);
+			-webkit-transform-origin: 0 100%;
+			-webkit-transition: -webkit-transform 0.1s ease-out;
+		}
+			
+			#scene-10 .act-6 span.action
+			{
+				-webkit-transform: scale(1);
+			}
+			
+			#scene-10 .act-6 span:nth-of-type(1)
+			{
+				font-size: 300%;
+				letter-spacing: -0.09em;
+				left: 9px;
+				-webkit-transform-origin: 100% 100%;
+			}
+			
+			#scene-10 .act-6 span:nth-of-type(2)
+			{
+				top: -65px;
+				left: 2px;
+				font-size: 98%;
+				-webkit-transform-origin: 100% 100%;
+			}
+			
+			#scene-10 .act-6 span:nth-of-type(3)
+			{
+				left: -174px;
+				margin-right: -178px;
+				top: -6px;
+				font-size: 90%;
+			}
+			
+			#scene-10 .act-6 span:nth-of-type(4),
+			#scene-10 .act-6 span:nth-of-type(5)
+			{
+				left: -438px;
+				top: 70px;
+				font-size: 121%;
+			}
+			
+				#scene-10 .act-6 span:nth-of-type(5)
+				{
+					margin-right: -438px;
+					-webkit-transform-origin: 100% 100%;
+				}
+				
+			#scene-10 .act-6 span:nth-of-type(6)
+			{
+				top: 18px;
+				left: -10px;
+				font-size: 202%;
+				text-transform: uppercase;
+				letter-spacing: -0.085em;
+				display: block;
+				-webkit-transform-origin: 50% 50%;
+			}
+			
+			#scene-10 .act-6 span:nth-of-type(7),
+			#scene-10 .act-6 span:nth-of-type(8)
+			{
+				top: -32px;
+				left: 7px;
+				font-size: 79%;
+				letter-spacing: -0.065em;
+			}
+			
+				#scene-10 .act-6 span:nth-of-type(8)
+				{
+					-webkit-transform-origin: 100% 100%;
+				}
+			
+			#scene-10 .act-6 span:nth-of-type(9)
+			{
+				left: -448px;
+				margin-right: -448px;
+				top: 35px;
+			}
+			
+			#scene-10 .act-6 span:nth-of-type(10)
+			{
+				font-size: 205%;
+				letter-spacing: -0.06em;
+				display: block;
+				top: -80px;
+				margin-bottom: -80px;
+				left: 205px;
+				-webkit-transform-origin: 100% 100%;
+			}
+			
+			#scene-10 .act-6 span:nth-of-type(11),
+			#scene-10 .act-6 span:nth-of-type(12)
+			{
+				font-size: 65%;
+				top: -195px;
+				left: 50px;
+				letter-spacing: -0.05em;
+			}
+			
+			#scene-10 .act-6 span:nth-of-type(13)
+			{
+				font-size: 235%;
+				top: -60px;
+				left: 34px;
+				letter-spacing: 0.006em;
+				-webkit-transform-origin: 100% 100%;
+			}
+			
+			#scene-10 .act-6 span:nth-of-type(14)
+			{
+				font-size: 82%;
+				top: -140px;
+				left: -380px;
+				margin-bottom: -152px;
+				margin-right: -466px;
+				letter-spacing: -0.04em;
+				-webkit-transform: rotate(-92deg) scale(0);
+			}
+			
+				#scene-10 .act-6 span:nth-of-type(14).action
+				{
+					-webkit-transform: rotate(-92deg) scale(1);
+				}
+			
+			#scene-10 .act-6 span:nth-of-type(15),
+			#scene-10 .act-6 span:nth-of-type(16)
+			{
+				font-size: 60%;
+				top: -156px;
+				left: -40px;
+				letter-spacing: -0.04em;
+			}
+			
+			#scene-10 .act-6 span:nth-of-type(17),
+			#scene-10 .act-6 span:nth-of-type(18)
+			{
+				font-size: 36%;
+				top: -128px;
+				left: -193px;
+				letter-spacing: -0.04em;
+			}
+			
+				#scene-10 .act-6 span:nth-of-type(18)
+				{
+					left: -200px;
+				}
+				
+			#scene-10 .act-6 span:nth-of-type(19),
+			#scene-10 .act-6 span:nth-of-type(20)
+			{
+				font-size: 44%;
+				top: -95px;
+				left: -404px;
+				letter-spacing: -0.04em;
+			}
+			
+				#scene-10 .act-6 span:nth-of-type(20)
+				{
+					left: -410px;
+				}
+			
+			#scene-10 .act-6 span:nth-of-type(21),
+			#scene-10 .act-6 span:nth-of-type(22)
+			{
+				font-size: 40%;
+				top: -62px;
+				left: -510px;
+				letter-spacing: -0.04em;
+			}
+			
+				#scene-10 .act-6 span:nth-of-type(22)
+				{
+					left: -520px;
+					-webkit-transform-origin: 100% 100%;
+				}
+				
+/*---------------------------------------- scene 10, act 7 -------------------------------------------*/
+
+	#scene-10 .act-7
+	{
+		display: block;
+		position: absolute;
+		font-size: 200%;
+		top: 10px;
+		left: 20px;
+		letter-spacing: -0.04em;
+		opacity: 0;
+	}
+		
+		#scene-10 .act-7.action
+		{
+			-webkit-transition: opacity 0.4s linear;
+			opacity: 1;
+		}
+		
+		#scene-10 .act-7.action.exit
+		{
+			opacity: 0;
+			-webkit-transition: opacity 0.5s linear;
+		}
+	
+		#scene-10 .act-7 em
+		{
+			font-style: normal;
+			color: #98d3f1;
+			opacity: 0;
+		}
+		
+			#scene-10 .act-7 em.action
+			{
+				opacity: 1;
+				-webkit-transition: opacity 0.4s linear;
+			}
+			
+/*---------------------------------------- scene 10, act 8 -------------------------------------------*/
+	
+	#scene-10 .act-8
+	{
+		display: block;
+		position: absolute;
+		font-size: 90%;
+		top: 100px;
+		right: 20px;
+		text-align: right;
+		letter-spacing: -0.06em;
+	}
+	
+		#scene-10 .act-8.exit
+		{
+			opacity: 0;
+			-webkit-transition: opacity 0.5s linear;
+		}
+		
+		#scene-10 .act-8 span
+		{
+			display: inline-block;
+			position: relative;
+			opacity: 0;
+		}
+		
+			#scene-10 .act-8 span.action
+			{
+				opacity: 1;
+				-webkit-transition: opacity 0.1s linear;
+			}
+		
+		#scene-10 .act-8 strong
+		{
+			font-size: 140%;
+			position: relative;
+		}
+		
+			#scene-10 .act-8 strong span:nth-of-type(1).positions,
+			#scene-10 .act-8 strong span:nth-of-type(2).positions
+			{
+				left: 0;
+				-webkit-transition: left 0.3s ease-out;
+			}
+			
+			#scene-10 .act-8 strong span:nth-of-type(1)
+			{
+				left: 156px;				
+			}
+			
+			#scene-10 .act-8 strong span:nth-of-type(2)
+			{
+				left: 100px;
+			}
+
+/*---------------------------------------- scene 10, act 9 -------------------------------------------*/
+
+	#scene-10 .act-9
+	{
+		display: block;
+		position: absolute;
+		top: 230px;
+		left: 140px;
+		letter-spacing: -0.06em;
+		font-size: 100%;
+		line-height: 1.8em;
+	}
+		
+		#scene-10 .act-9.exit
+		{
+			display: none;
+		}
+		
+		#scene-10 .act-9 span
+		{
+			position: relative;
+			opacity: 0;
+		}
+		
+			#scene-10 .act-9 span.action
+			{
+				opacity: 1;
+				-webkit-transition: opacity 0.2s ease-out;
+			}
+			
+			#scene-10 .act-9 span.spotlight
+			{
+				font-size: 170%;
+				-webkit-transition: font-size 0.1s ease-out;
+			}
+			
+			#scene-10 .act-9 span:nth-of-type(4).spotlight
+			{
+				left: 45px;
+				font-size: 170%;
+				-webkit-transition: font-size 0.1s ease-out,
+									left 0.1s ease-out;
+			}
+	
+/*---------------------------------------- scene 10, act 10 -------------------------------------------*/
+
+	#scene-10 .act-10
+	{
+		display: block;
+		position: absolute;
+		top: 229px;
+		left: 70px;
+		letter-spacing: -0.06em;
+		line-height: 1.8em;
+	}
+		
+		#scene-10 .act-10.exit
+		{
+			display: none;
+			opacity: 0;
+		}
+		
+		#scene-10 .act-10 span
+		{
+			opacity: 0;
+			font-size: 170%;
+		}
+		
+		#scene-10 .act-10 strong
+		{
+			position: relative;
+			opacity: 0;
+			font-size: 170%;
+		}
+		
+			#scene-10 .act-10 strong.action
+			{
+				opacity: 1;
+				-webkit-transition: opacity 0.2s ease-out;
+			}
+			
+/*---------------------------------------------- scene 11 --------------------------------------------*/
+
+	#stage #scene-11
+	{
+		display: block;
+		position: absolute;
+	}
+	
+/*------------------------------------------ scene 11, act 1 -----------------------------------------*/
+
+	#scene-11 .act-1
+	{
+		display: block;
+		position: absolute;
+		top: 200px;
+		left: 430px;
+		font-size: 250%;
+		-webkit-transform: scale(0);
+		-webkit-transform-origin: 50% 50%;
+		-webkit-transition: -webkit-transform 0.1s ease-out;
+	}
+	
+		#scene-11 .act-1.action
+		{
+			-webkit-transform: scale(1);
+		}
