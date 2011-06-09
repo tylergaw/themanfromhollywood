@@ -5,10 +5,10 @@ hr { display: none; }
 
 body
 {
+	background-color: #180007;
+	color: #eee;
 	font-family: helvetica, arial, 'liberation sans', sans-serif;
 	font-size: medium;
-	background-color: #100105;
-	color: #eee;
 }
 
 @font-face {
@@ -20,6 +20,7 @@ body
 {
 	opacity: 0.1;
 	-webkit-transition: opacity 0.3s linear;
+	-moz-transition: opacity 0.3s linear;
 }
 
 /*---------------------------------------------- header ----------------------------------------------*/
@@ -31,6 +32,7 @@ header
 	margin: 0 auto;
 	padding: 30px 0 60px 0;
 	-webkit-transition: opacity 0.3s linear;
+	-moz-transition: opacity 0.3s linear;
 }
 
 h1
@@ -50,9 +52,12 @@ h1
 		height: 100%;
 		opacity: 0.7;
 		background: -webkit-gradient(linear, left top, left bottom, 
-									color-stop(0.0, rgba(16, 1, 5, 0)), 
-									color-stop(0.4, rgba(16, 1, 5, 0.2)),
-									color-stop(1, #100105));
+										color-stop(0.0, rgba(16, 1, 5, 0)), 
+										color-stop(0.4, rgba(16, 1, 5, 0.2)),
+										color-stop(1, #100105));
+		background: -webkit-linear-gradient(top, rgba(16, 1, 5, 0), rgba(16, 1, 5, 0.2) 40%, #100105);
+		background: -moz-linear-gradient(top, rgba(16, 1, 5, 0), rgba(16, 1, 5, 0.2) 40%, #100105);
+		background: linear-gradient(top, rgba(16, 1, 5, 0), rgba(16, 1, 5, 0.2) 40%, #100105);
 	}
 
 /*--------------------------------------------- Intro text -------------------------------------------*/
@@ -92,13 +97,15 @@ header p:nth-of-type(2)
 	footer a
 	{
 		-webkit-border-radius: 1px;
+		-moz-border-radius: 1px;
+		border-radius: 1px;
 		padding: 0 3px;
 		background-color: transparent;
 		color: #BDB0B3;
 		font-size: 80%;
 		text-decoration: underline;
-		-webkit-transition: background-color 0.4s ease-out,
-							color 0.4s ease-out;
+		-webkit-transition: background-color 0.4s ease-out, color 0.4s ease-out;
+		-moz-transition: background-color 0.4s ease-out, color 0.4s ease-out;
 	}
 
 		header a:hover,
@@ -107,8 +114,8 @@ header p:nth-of-type(2)
 			background-color: #BDB0B3;
 			color: #250911;
 			text-decoration: none;
-			-webkit-transition: background-color 0.2s ease-out,
-								color 0.2s ease-out;
+			-webkit-transition: background-color 0.2s ease-out, color 0.2s ease-out;
+			-moz-transition: background-color 0.2s ease-out, color 0.2s ease-out;
 		}
 
 /*----------------------------------------------- Stage ----------------------------------------------*/
@@ -122,24 +129,31 @@ header p:nth-of-type(2)
 	overflow: hidden;
 	margin: 0 auto;
 	-webkit-box-shadow: 0px 0px 15px #000;
+	-moz-box-shadow: 0px 0px 15px #000;
+	box-shadow: 0px 0px 15px #000;
 	background: -webkit-gradient(linear, left top, left bottom, 
-								from(rgba(130, 18, 40, 1)), 
-								to(rgba(53, 0, 10, 1)),
-								color-stop(50%, #6a0015));
+									from(rgba(130, 18, 40, 1)), 
+									to(rgba(53, 0, 10, 1)),
+									color-stop(50%, #6a0015));
+	background: -webkit-linear-gradient(top, rgba(130, 18, 40, 1), rgba(53, 0, 10, 1));
+	background: -moz-linear-gradient(top, rgba(130, 18, 40, 1), rgba(53, 0, 10, 1));
+	background: linear-gradient(top, rgba(130, 18, 40, 1), rgba(53, 0, 10, 1));
 }
 
 	#stage.norman
 	{
-		background: -webkit-gradient(linear, left top, left bottom, 
-									from(#775924), 
-									to(#312106));
+		background: -webkit-gradient(linear, left top, left bottom, from(#775924), to(#312106));
+		background: -webkit-linear-gradient(top, #775924, #312106);
+		background: -moz-linear-gradient(top, #775924, #312106);
+		background: linear-gradient(top, #775924, #312106);
 	}
 	
 	#stage.everyone
 	{
-		background: -webkit-gradient(linear, left top, left bottom, 
-									from(#6955bb), 
-									to(#201a38));
+		background: -webkit-gradient(linear, left top, left bottom, from(#6955bb), to(#201a38));
+		background: -webkit-linear-gradient(top, #6955bb, #201a38);
+		background: -moz-linear-gradient(top, #6955bb, #201a38);
+		background: linear-gradient(top, #6955bb, #201a38);
 	}
 
 /*-------------------------------------------- Play Button -------------------------------------------*/
@@ -153,8 +167,8 @@ header p:nth-of-type(2)
 		height: 608px;
 		cursor: pointer;
 		background-color: rgba(0, 0, 0, 0.85);
-		-webkit-transition: background-color 0.3s ease-out, 
-							opacity 0.3s linear;
+		-webkit-transition: background-color 0.3s ease-out, opacity 0.3s linear;
+		-moz-transition: background-color 0.3s ease-out, opacity 0.3s linear;
 	}
 		
 		#stage #play.hide
@@ -176,26 +190,31 @@ header p:nth-of-type(2)
 	
 		#stage #play span
 		{
-			position: relative;
-			cursor: pointer;
-			text-indent: -300em;
-
-			display: block;
-			margin: 0 auto;
-			top: 35%;
-			width: 134px;
-			height: 134px;
-			-webkit-border-radius: 125px;
-			border: 4px solid #bababa;
 			background: -webkit-gradient(linear, left top, left bottom, 
-										from(rgba(44, 44, 44, 0.8)), 
-										to(rgba(0, 0, 0, 0.8)),
-										color-stop(70%, #000));
-			
+											from(rgba(44, 44, 44, 0.8)), 
+											to(rgba(0, 0, 0, 0.8)),
+											color-stop(70%, #000));
+			background: -webkit-linear-gradient(top, rgba(44, 44, 44, 0.8), rgba(0, 0, 0, 0.8));
+			background: -moz-linear-gradient(top, rgba(44, 44, 44, 0.8), rgba(0, 0, 0, 0.8));
+			background: linear-gradient(top, rgba(44, 44, 44, 0.8), rgba(0, 0, 0, 0.8));
+			-webkit-border-radius: 125px;
+			-moz-border-radius: 125px;
+			border-radius: 125px;
+			border: 4px solid #bababa;
+			cursor: pointer;
+			display: block;
+			height: 134px;
+			margin: 0 auto;
 			opacity: 0.6;
+			position: relative;
+			text-indent: -300em;
+			top: 35%;
 			-webkit-transform: scale(0.8);
-			-webkit-transition: opacity 0.3s ease-out, 
-								-webkit-transform 0.15s ease-out;
+			-moz-transform: scale(0.8);
+			transform: scale(0.8);
+			-webkit-transition: opacity 0.3s ease-out, -webkit-transform 0.15s ease-out;
+			-moz-transition: opacity 0.3s ease-out, -moz-transform 0.1s ease-out;
+			width: 134px;
 		}
 		
 			#stage #play span i
@@ -209,7 +228,9 @@ header p:nth-of-type(2)
 				border-color: transparent transparent #f2f2f2 transparent;
 				border-style: solid;
 				border-width: 0px 58px 58px 58px;
-				-webkit-transform: scaleY(0.60) rotate(90deg);
+				-moz-transform: scaleY(0.6) rotate(90deg);
+				-webkit-transform: scaleY(0.6) rotate(90deg);
+				transform: scaleY(0.6) rotate(90deg);
 			}
 		
 		#stage #play:hover 
@@ -221,22 +242,28 @@ header p:nth-of-type(2)
 		#stage #play span:hover
 		{
 			opacity: 0.80;
+			-moz-transform: scale(1);
 			-webkit-transform: scale(1);
+			transform: scale(1);
 		}
 		
 /*------------------------------------------- Stage Vignette -----------------------------------------*/
 	
 	#stage #vignette
 	{
+		background: -webkit-gradient(radial, 540 304, 330, 540 304, 750,
+										from(rgba(0, 0, 0, 0)), 
+										to(rgba(0, 0, 0, 1)),
+										color-stop(85%, #000));
+		background: -webkit-radial-gradient(center, circle cover, rgba(0, 0, 0, 0) 65%, rgba(0, 0, 0, 0.6) 100%);
+		background: -moz-radial-gradient(center, circle cover, rgba(0, 0, 0, 0) 65%, rgba(0, 0, 0, 0.6) 100%);
+		background: radial-gradient(center, circle cover, rgba(0, 0, 0, 0) 65%, rgba(0, 0, 0, 0.6) 100%);
 		position: absolute;
 		display: block;
 		z-index: 100;
 		width: 1080px;
 		height: 608px;		
-		background: -webkit-gradient(radial, 540 304, 330, 540 304, 750,
-									from(rgba(0, 0, 0, 0)), 
-									to(rgba(0, 0, 0, 1)),
-									color-stop(85%, #000));
+		
 	}
 
 /*-------------------------------------------- footer ------------------------------------------------*/
@@ -249,6 +276,7 @@ footer
 	margin: 0 auto;
 	text-align: center;
 	-webkit-transition: opacity 0.3s linear;
+	-moz-transition: opacity 0.3s linear;
 }
 
 	footer a
@@ -290,21 +318,24 @@ footer
 		top: 200px;
 		left: 32%;
 		opacity: 0;
-		-webkit-transform: scale(0.0);
-		-webkit-transition: opacity 0.1s ease, 
-							-webkit-transform 0.1s ease-out;
+		-webkit-transform: scale(0);
+		-moz-transform: scale(0);
+		-webkit-transition: opacity 0.1s ease, -webkit-transform 0.1s ease-out;
+		-moz-transition: opacity 0.1s ease, -moz-transform 0.1s ease-out;
 	}
 	
 		#stage #scene-1.action
 		{
 			opacity: 1;
 			-webkit-transform: scale(1);
+			-moz-transform: scale(1);
 		}
 		
 		#stage #scene-1.cut
 		{
 			opacity: 0.4;
 			-webkit-transform: scale(0);
+			-moz-transform: scale(0);
 		}
 	
 /*-------------------------------------------- scene 2 -----------------------------------------------*/
@@ -315,6 +346,9 @@ footer
 	-webkit-transition: top 0.1s linear, 
 						left 0.1s linear, 
 						-webkit-transform 0.1s linear;
+	-moz-transition: top 0.1s linear, 
+					left 0.1s linear, 
+					-moz-transform 0.1s linear;
 }
 
 	#stage #scene-2.exit-left
@@ -338,6 +372,7 @@ footer
 		top: -110px;
 		left: 570px;
 		-webkit-transform: rotate(90deg);
+		-moz-transform: rotate(90deg);
 	}
 	
 /*----------------------------------------- scene 2, act 1 -------------------------------------------*/
@@ -351,12 +386,14 @@ footer
 		overflow: hidden;
 		width: 260px;
 		-webkit-transition: left 0.1s linear;
+		-moz-transition: left 0.1s linear;
 	}
 	
 		#scene-2 .act-1.position-1
 		{
 			left: 800px;
 			-webkit-transition: left 0.1s linear;
+			-moz-transition: left 0.1s linear;
 		}
 		
 		#scene-2 .act-1.position-1.position-2
@@ -364,6 +401,7 @@ footer
 			left: 540px;
 			width: 800px;
 			-webkit-transition: left 0.2s ease-in;
+			-moz-transition: left 0.2s ease-in;
 		}
 		
 		#scene-2 .act-1.position-1.position-2.exit
@@ -384,6 +422,10 @@ footer
 							top 0.4s ease-in, 
 							opacity 0.2s linear, 
 							-webkit-transform 0.2s ease-in;
+		-moz-transition: left 2s linear, 
+						top 0.4s ease-in, 
+						opacity 0.2s linear, 
+						-moz-transform 0.2s ease-in;
 	}
 	
 		#scene-2 .act-2.position-1
@@ -402,6 +444,7 @@ footer
 			top: 700px;
 			left: -12000px;
 			-webkit-transform: rotate(-2deg);
+			-moz-transform: rotate(-2deg);
 			opacity: 0;
 		}
 	
@@ -413,12 +456,14 @@ footer
 		top: 70px;
 		left: 443px;
 		font-size: 190%;
-		-webkit-transform: rotate(-90deg);
 		letter-spacing: 1px;
 		overflow: hidden;
 		padding-top: 132px;
 		opacity: 1;
+		-webkit-transform: rotate(-90deg);
+		-moz-transform: rotate(-90deg);
 		-webkit-transition: opacity 0.2s linear;
+		-moz-transition: opacity 0.2s linear;
 	}
 		
 		#scene-2 .act-3.hide
@@ -431,6 +476,7 @@ footer
 			position: relative;
 			left: -290px;
 			-webkit-transition: left 0.1s linear;
+			-moz-transition: left 0.1s linear;
 		}
 		
 		#scene-2 .act-3 span
@@ -443,6 +489,7 @@ footer
 			letter-spacing: -2px;
 			font-size: 105%;
 			-webkit-transition: left 0.2s linear;
+			-moz-transition: left 0.2s linear;
 		}
 		
 		#scene-2 .act-3 em
@@ -457,6 +504,7 @@ footer
 			color: #fff;
 			opacity: 0;
 			-webkit-transition: color 0.5s linear;
+			-moz-transition: color 0.5s linear;
 		}
 		
 		#scene-2 .act-3 .action
@@ -474,8 +522,11 @@ footer
 		{
 			left: 900px;
 			-webkit-transform: rotate(-110deg);
+			-moz-transform: rotate(-110deg);
 			-webkit-transition: left 0.2s ease-in, 
 								-webkit-transform 0.5s ease-in;
+			-moz-transition: left 0.2s ease-in, 
+							-moz-transform 0.5s ease-in;
 		}
 		
 /*----------------------------------------- scene 2, act 4 -------------------------------------------*/
@@ -489,9 +540,11 @@ footer
 		letter-spacing: 1px;
 		overflow: hidden;
 		padding-top: 132px;
-		-webkit-transform: rotate(-90deg);
 		opacity: 1;
+		-webkit-transform: rotate(-90deg);
+		-moz-transform: rotate(-90deg);
 		-webkit-transition: opacity 0.2s linear;
+		-moz-transition: opacity 0.2s linear;
 	}
 	
 		#scene-2 .act-4.hide
@@ -511,8 +564,8 @@ footer
 			left: 0px;
 			opacity: 0;
 			top: -20px;
-			-webkit-transition: top 0.1s linear, 
-								opacity 0.2s linear;
+			-webkit-transition: top 0.1s linear, opacity 0.2s linear;
+			-moz-transition: top 0.1s linear, opacity 0.2s linear;
 		}
 			
 			#scene-2 .act-4 strong.action
@@ -555,7 +608,10 @@ footer
 				height: 6px;
 				background-color: #fff;
 				-webkit-box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.6);
+				-moz-box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.6);
+				box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.6);
 				-webkit-transition: width 0.15s ease-out;
+				-moz-transition: width 0.15s ease-out;
 			}
 			
 				#scene-2 .act-4 span b.action
@@ -577,6 +633,9 @@ footer
 			-webkit-transition: opacity 0.1s linear, 
 								color 0.5s ease-out, 
 								letter-spacing 0.3s ease-out;
+			-moz-transition: opacity 0.1s linear, 
+							color 0.5s ease-out, 
+							letter-spacing 0.3s ease-out;
 		}
 		
 			#scene-2 .act-4 em.action
@@ -590,8 +649,11 @@ footer
 		{
 			left: 900px;
 			-webkit-transform: rotate(-70deg);
+			-moz-transform: rotate(-70deg);
 			-webkit-transition: left 0.2s ease-in, 
 								-webkit-transform 0.5s ease-in;
+			-moz-transition: left 0.2s ease-in, 
+							-moz-transform 0.5s ease-in;
 		}
 			
 /*----------------------------------------- scene 2, act 5 -------------------------------------------*/
@@ -604,6 +666,7 @@ footer
 	top: -11450px;
 	left: -11735px;
 	-webkit-transform: rotate(-90deg);
+	-moz-transform: rotate(-90deg);
 }
 
 	#scene-2 .act-5.position-1
@@ -639,6 +702,7 @@ footer
 		{
 			opacity: 0;
 			-webkit-transition: opacity 0.2s linear;
+			-moz-transition: opacity 0.2s linear;
 		}
 		
 			#scene-2 .act-5 strong.action
@@ -651,6 +715,7 @@ footer
 			opacity: 0;
 			font-style: normal;
 			-webkit-transition: opacity 0.5s linear;
+			-moz-transition: opacity 0.5s linear;
 		}
 		
 			#scene-2 .act-5 em.action
@@ -669,6 +734,7 @@ footer
 {
 	display: none;
 	-webkit-transform: rotate(-90deg);
+	-moz-transform: rotate(-90deg);
 	left: 110px;
 	top: 570px;
 }
@@ -677,8 +743,11 @@ footer
 	{
 		left: 1100px;
 		-webkit-transform: rotate(-60deg);
+		-moz-transform: rotate(-60deg);
 		-webkit-transition: left 0.1s ease-in, 
 							-webkit-transform 0.2s ease-in;
+		-moz-transition: left 0.1s ease-in, 
+						-moz-transform 0.2s ease-in;
 	}
 	
 	#scene-2 .act-6.action
@@ -702,6 +771,7 @@ footer
 		left: 584px;
 		top: 180px;
 		-webkit-transition: top 0.2s linear;
+		-moz-transition: top 0.2s linear;
 	}
 	
 		#scene-2 .act-6 em.action
@@ -732,6 +802,7 @@ footer
 		left: 584px;
 		top: 130px;
 		-webkit-transition: opacity 0.3s linear;
+		-moz-transition: opacity 0.3s linear;
 	}
 		
 		#scene-2 .act-6 span.action
@@ -745,13 +816,16 @@ footer
 {
 	display: block;
 	-webkit-transform: rotate(-90deg);
+	-moz-transform: rotate(-90deg);
 }
 	
 	#scene-2 .act-7.exit
 	{
 		left: 1200px;
 		-webkit-transform: rotate(-55deg);
+		-moz-transform: rotate(-55deg);
 		-webkit-transition: left 0.1s ease-in, -webkit-transform 0.2s ease-in;
+		-moz-transition: left 0.1s ease-in, -moz-transform 0.2s ease-in;
 	}
 	
 	#scene-2 .act-7 i
@@ -766,8 +840,9 @@ footer
 		font-size: 163%;
 		left: 15px;
 		top: 215px;
-		-webkit-transition: opacity 0.2s linear;
 		opacity: 0;
+		-webkit-transition: opacity 0.2s linear;
+		-moz-transition: opacity 0.2s linear;
 	}
 	
 		#scene-2 .act-7 strong.action
@@ -783,6 +858,7 @@ footer
 		top: 145px;
 		font-size: 220%;
 		-webkit-transition: opacity 0.3s linear;
+		-moz-transition: opacity 0.3s linear;
 	}
 	
 		#scene-2 .act-7 span.action
@@ -796,13 +872,16 @@ footer
 {
 	display: block;
 	-webkit-transform: rotate(-90deg);
+	-moz-transform: rotate(-90deg);
 }
 
 	#scene-2 .act-8.exit
 	{
 		left: 1150px;
 		-webkit-transform: rotate(-63deg);
+		-moz-transform: rotate(-63deg);
 		-webkit-transition: left 0.14s ease-in, -webkit-transform 0.25s ease-in;
+		-moz-transition: left 0.14s ease-in, -moz-transform 0.25s ease-in;
 	}
 	
 	#scene-2 .act-8 strong
@@ -813,6 +892,7 @@ footer
 		font-size:215%;
 		opacity:0;
 		-webkit-transition: opacity 0.2s linear;
+		-moz-transition: opacity 0.2s linear;
 	}
 	
 		#scene-2 .act-8 strong.action
@@ -828,6 +908,7 @@ footer
 		top:385px;
 		font-size:125%;
 		-webkit-transform: rotate(90deg);
+		-moz-transform: rotate(90deg);
 	}
 		#scene-2 .act-8 b
 		{
@@ -857,19 +938,23 @@ footer
 		top:70px;
 		left:120px;
 		-webkit-transform: rotate(-5deg);
+		-moz-transform: rotate(-5deg);
 	}
 	
 		#scene-3 .act-1.action
 		{
-			-webkit-transition: top 4s linear, -webkit-transform 4s linear;
 			top:90px;
 			-webkit-transform: rotate(-8deg);
+			-moz-transform: rotate(-8deg);
+			-webkit-transition: top 4s linear, -webkit-transform 4s linear;
+			-moz-transition: top 4s linear, -moz-transform 4s linear;
 		}
 		
 		#scene-3 .act-1.exit
 		{
-			-webkit-transition: opacity 0.3s linear;
 			opacity:0;
+			-webkit-transition: opacity 0.3s linear;
+			-moz-transition: opacity 0.3s linear;
 		}
 	
 	#scene-3 .act-1 span
@@ -887,12 +972,14 @@ footer
 	#scene-3 .act-1 span:nth-child(1)
 	{
 		-webkit-transform: rotate(-6deg);
+		-moz-transform: rotate(-6deg);
 	}
 	
 	#scene-3 .act-1 span:nth-child(2)
 	{
 		left:10px;
 		-webkit-transform: rotate(-1deg);
+		-moz-transform: rotate(-1deg);
 	}
 	
 	#scene-3 .act-1 span:nth-child(3)
@@ -901,6 +988,7 @@ footer
 		top:2px;
 		left:15px;
 		-webkit-transform: rotate(2deg);
+		-moz-transform: rotate(2deg);
 	}
 	
 	#scene-3 .act-1 span:nth-child(4)
@@ -908,6 +996,7 @@ footer
 		top:-12px;
 		display:block;
 		-webkit-transform: rotate(-2deg);
+		-moz-transform: rotate(-2deg);
 	}
 	
 		#scene-3 .act-1 span:nth-child(4) em
@@ -920,6 +1009,7 @@ footer
 		#scene-3 .act-1 span:nth-child(4) em.action
 		{
 			-webkit-transition: width 0.3s linear;
+			-moz-transition: width 0.3s linear;
 			width:255px;
 		}
 		
@@ -927,6 +1017,7 @@ footer
 	{
 		left:15px;
 		-webkit-transform: rotate(2deg);
+		-moz-transform: rotate(2deg);
 		display:block;
 	}
 	
@@ -934,6 +1025,7 @@ footer
 	{
 		left:0px;
 		-webkit-transform: rotate(2deg);
+		-moz-transform: rotate(2deg);
 	}
 	
 	#scene-3 .act-1 span:nth-child(7)
@@ -941,6 +1033,7 @@ footer
 		top:-4px;
 		font-size:100%;
 		-webkit-transform: rotate(-4deg);
+		-moz-transform: rotate(-4deg);
 	}
 	
 /*-------------------------------------------- scene 4 -----------------------------------------------*/
@@ -954,7 +1047,9 @@ footer
 	{
 		top:600px;
 		-webkit-transform: rotate(-55deg);
+		-moz-transform: rotate(-55deg);
 		-webkit-transition: -webkit-transform 0.1s ease-out, top 0.1s ease-out;
+		-moz-transition: -moz-transform 0.1s ease-out, top 0.1s ease-out;
 	}
 	
 	#stage #scene-4.cut
@@ -971,11 +1066,13 @@ footer
 	left:50px;
 	font-size:500%;
 	-webkit-transform: rotate(-8deg);
+	-moz-transform: rotate(-8deg);
 }
 
 	#scene-4 .act-1.action
 	{
 		-webkit-transition: left 1s ease-in;
+		-moz-transition: left 1s ease-in;
 		left:-1800px;
 	}
 
@@ -991,9 +1088,10 @@ footer
 	
 		#scene-4 .act-1 em.action
 		{
-			-webkit-transition: opacity 0.2s linear, left 0.3s ease-out;
 			opacity:1;
 			left:0px;
+			-webkit-transition: opacity 0.2s linear, left 0.3s ease-out;
+			-moz-transition: opacity 0.2s linear, left 0.3s ease-out;
 		}
 	
 	#scene-4 .act-1 span
@@ -1001,13 +1099,17 @@ footer
 		display:inline-block;
 		position:relative;
 		-webkit-transform: scale(0);
+		-moz-transform: scale(0);
 		-webkit-transform-origin: 0 100%;
+		-moz-transform-origin: 0 100%;
 		-webkit-transition: -webkit-transform 0.2s ease-out;
+		-moz-transition: -moz-transform 0.2s ease-out;
 	}
 	
 		#scene-4 .act-1 span.action
 		{
 			-webkit-transform: scale(1);
+			-moz-transform: scale(1);
 		}
 	
 		#scene-4 .act-1 span:nth-of-type(1)
@@ -1050,6 +1152,7 @@ footer
 	font-size:120%;
 	letter-spacing: -0.07em;
 	-webkit-transform: rotate(82deg);
+	-moz-transform: rotate(82deg);
 	line-height:1em;
 }
 
@@ -1074,6 +1177,7 @@ footer
 			position:relative;
 			left:400px;
 			-webkit-transition: left 0.2s ease-out;
+			-moz-transition: left 0.2s ease-out;
 		}
 		
 		#scene-4 .act-2 span.action
@@ -1116,6 +1220,7 @@ footer
 	{
 		display:block;
 		-webkit-transform: scale(0.4);
+		-moz-transform: scale(0.4);
 		left:290px;
 		top:50px;
 	}
@@ -1125,6 +1230,7 @@ footer
 			top:-600px;
 			left:-1000px;
 			-webkit-transform: scale(6) rotate(45deg);
+			-moz-transform: scale(6) rotate(45deg);
 			text-shadow: rgba(0, 0, 0, 0.4) 1px 1px 1px;
 		}
 		
@@ -1133,21 +1239,28 @@ footer
 			top:150px;
 			left:-30px;
 			-webkit-transform-origin: 0 100%;
+			-moz-transform-origin: 0 100%;
 			-webkit-transform: scale(1.5);
+			-moz-transform: scale(1.5);
 			text-shadow: rgba(0, 0, 0, 0.6) 1px 1px 1px;
 		}
 		
 		#scene-6 .act-1.exit
 		{
 			-webkit-transform-origin: 0 100%;
+			-moz-transform-origin: 0 100%;
 			-webkit-transform: rotate(-40deg) scale(1.5);
+			-moz-transform: rotate(-40deg) scale(1.5);
 			-webkit-transition: -webkit-transform 0.3s ease-out;
+			-moz-transition: -moz-transform 0.3s ease-out;
 		}
 		
 		#scene-6 .act-1.off-stage
 		{
 			-webkit-transform: rotate(-90deg) scale(1.5);
+			-moz-transform: rotate(-90deg) scale(1.5);
 			-webkit-transition: -webkit-transform 1s ease-out;
+			-moz-transition: -moz-transform 1s ease-out;
 		}
 	
 	#scene-6 .act-1 strong
@@ -1170,6 +1283,7 @@ footer
 		display:block;
 		letter-spacing:-0.085em;
 		-webkit-transform: rotate(-45deg);
+		-moz-transform: rotate(-45deg);
 	}
 	
 	#scene-6 .act-1 span:nth-of-type(1)
@@ -1206,6 +1320,7 @@ footer
 		#scene-6 .act-1 span em.action
 		{
 			-webkit-transition: opacity 0.2s linear;
+			-moz-transition: opacity 0.2s linear;
 			opacity:1;
 		}
 		
@@ -1241,10 +1356,15 @@ footer
 			top: 50px;
 			left: -100px;
 			-webkit-transform: rotate(-40deg);
+			-moz-transform: rotate(-40deg);
 			-webkit-transform-origin: 0 100%;
+			-moz-transform-origin: 0 100%;
 			-webkit-transition: -webkit-transform 0.3s ease-out,
 								top 0.3s ease-out,
 								left 0.3s ease-out;
+			-moz-transition: -moz-transform 0.3s ease-out,
+							top 0.3s ease-out,
+							left 0.3s ease-out;
 		}
 	
 		#scene-8 .act-1 span em
@@ -1279,8 +1399,13 @@ footer
 			top: -100px;
 			left: 200px;
 			-webkit-transform-origin: 0 100%;
+			-moz-transform-origin: 0 100%;
 			-webkit-transform: rotate(-40deg);
+			-moz-transform: rotate(-40deg);
 			-webkit-transition: -webkit-transform 0.25s ease-out,
+								top 0.12s ease-out,
+								left 0.12s ease-out;
+			-moz-transition: -moz-transform 0.25s ease-out,
 								top 0.12s ease-out,
 								left 0.12s ease-out;
 		}
@@ -1289,6 +1414,7 @@ footer
 		{
 			top: -200px;
 			-webkit-transform: rotate(-50deg);
+			-moz-transform: rotate(-50deg);
 		}
 	
 		#scene-9 .act-1 span
@@ -1298,14 +1424,15 @@ footer
 			left: 125px;
 			display: block;
 			-webkit-transform: rotate(55deg);
+			-moz-transform: rotate(55deg);
 		}
 		
 			#scene-9 .act-1 span.action
 			{
 				top: 80px;
 				left: -15px;
-				-webkit-transition: top 0.1s ease-out, 
-									left 0.1s ease-out;
+				-webkit-transition: top 0.1s ease-out, left 0.1s ease-out;
+				-moz-transition: top 0.1s ease-out, left 0.1s ease-out;
 			}
 			
 /*-------------------------------------------- scene 10 ----------------------------------------------*/
@@ -1331,7 +1458,9 @@ footer
 		display: block;
 		left: 348px;
 		-webkit-transform-origin: 0 100%;
+		-moz-transform-origin: 0 100%;
 		-webkit-transform: rotate(90deg);
+		-moz-transform: rotate(90deg);
 		
 	}
 		
@@ -1340,9 +1469,13 @@ footer
 			top: -182px;
 			left: 100px;
 			-webkit-transform: rotate(49deg);
+			-moz-transform: rotate(49deg);
 			-webkit-transition: -webkit-transform 0.3s ease-out,
 								top 0.3s ease-out,
 								left 0.3s ease-out;
+			-moz-transition: -moz-transform 0.3s ease-out,
+							top 0.3s ease-out,
+							left 0.3s ease-out;
 		}
 		
 		#scene-10 .act-1.action.exit
@@ -1350,9 +1483,13 @@ footer
 			top: -550px;
 			left: -50px;
 			-webkit-transform: rotate(-90deg);
+			-moz-transform: rotate(-90deg);
 			-webkit-transition: -webkit-transform 1s ease-out,
 								top 1s ease-out,
 								left 1s ease-out;
+			-moz-transition: -moz-transform 1s ease-out,
+							top 1s ease-out,
+							left 1s ease-out;
 		}
 		
 		#scene-10 .act-1 span
@@ -1366,12 +1503,14 @@ footer
 			{
 				left: 0;
 				-webkit-transition: left 0.2s ease-out;
+				-moz-transition: left 0.2s ease-out;
 			}
 		
 		#scene-10 .act-1 span em
 		{
 			font-style: normal;
 			-webkit-transition: opacity 0.2s linear;
+			-moz-transition: opacity 0.2s linear;
 		}
 		
 		#scene-10 .act-1 span em:nth-of-type(1).exit
@@ -1404,8 +1543,8 @@ footer
 		{
 			top: -450px;
 			left: -225px;
-			-webkit-transition: top 3.5s ease-out,
-								left 3.5s ease-out;
+			-webkit-transition: top 3.5s ease-out, left 3.5s ease-out;
+			-moz-transition: top 3.5s ease-out, left 3.5s ease-out;
 		}
 		
 		#scene-10 .act-2.exit
@@ -1453,16 +1592,20 @@ footer
 			
 			#scene-10 .act-2 span:nth-of-type(2) b
 			{
-				-webkit-transform-origin: 0 100%;
-				-webkit-transform: rotate(-10deg) scale(0);
 				display: inline-block;
 				position: relative;
+				-webkit-transform-origin: 0 100%;
+				-moz-transform-origin: 0 100%;
+				-webkit-transform: rotate(-10deg) scale(0);
+				-moz-transform: rotate(-10deg) scale(0);
 			}
 			
 				#scene-10 .act-2 strong:nth-of-type(1) span:nth-of-type(2) b.action
 				{
 					-webkit-transform: rotate(-10deg) scale(1);
+					-moz-transform: rotate(-10deg) scale(1);
 					-webkit-transition: -webkit-transform 0.1s ease-out;
+					-moz-transition: -webkit-transform 0.1s ease-out;
 				}
 			
 				#scene-10 .act-2 strong:nth-of-type(1) b:nth-of-type(1)
@@ -1549,13 +1692,17 @@ footer
 				display: inline-block;
 				position: relative;
 				-webkit-transform-origin: 0 100%;
+				-moz-transform-origin: 0 100%;
 				-webkit-transform: rotate(-10deg) scale(0);
+				-moz-transform: rotate(-10deg) scale(0);
 			}
 			
 			#scene-10 .act-2 strong:nth-of-type(2) b.action
 			{
 				-webkit-transform: rotate(-10deg) scale(1);
+				-moz-transform: rotate(-10deg) scale(1);
 				-webkit-transition: -webkit-transform 0.1s ease-out;
+				-moz-transition: -webkit-transform 0.1s ease-out;
 			}
 			
 			#scene-10 .act-2 strong:nth-of-type(2) b:nth-of-type(2)
@@ -1621,12 +1768,15 @@ footer
 				left: -110px;
 				margin-right: -110px;
 				-webkit-transform: rotate(80deg) scale(0);
+				-moz-transform: rotate(80deg) scale(0);
 			}
 			
 				#scene-10 .act-2 strong:nth-of-type(2) b:nth-of-type(9).action
 				{
 					-webkit-transform: rotate(80deg) scale(1);
+					-moz-transform: rotate(80deg) scale(1);
 					-webkit-transition: -webkit-transform 0.1s ease-out;
+					-moz-transition: -moz-transform 0.1s ease-out;
 				}
 			
 			#scene-10 .act-2 strong:nth-of-type(2) b:nth-of-type(10)
@@ -1748,6 +1898,7 @@ footer
 				#scene-10 .act-3.dance-motherfucker-dance
 				{
 					-webkit-transition: top 0.2s ease-out;
+					-moz-transition: top 0.2s ease-out;
 				}
 			
 			#scene-10 .act-3.position-11
@@ -1809,6 +1960,7 @@ footer
 				{
 					opacity: 1;
 					-webkit-transition: opacity 0.2s linear;
+					-moz-transition: opacity 0.2s linear;
 				}
 				
 /*---------------------------------------- scene 10, act 4 -------------------------------------------*/
@@ -1822,6 +1974,7 @@ footer
 		right: 5px;
 		top: 580px;
 		-webkit-transition: top 0.2s ease-out;
+		-moz-transition: top 0.2s ease-out;
 	}
 	
 		#scene-10 .act-4.position-1
@@ -1893,6 +2046,7 @@ footer
 			display: block;
 			font-size: 400%;
 			-webkit-transform: rotate(-90deg);
+			-moz-transform: rotate(-90deg);
 		}
 		
 		#scene-10 .act-4 span
@@ -1915,6 +2069,7 @@ footer
 				{
 					width: 160px;
 					-webkit-transition: width 0.3s ease-out;
+					-moz-transition: width 0.3s ease-out;
 				}
 
 /*---------------------------------------- scene 10, act 5 -------------------------------------------*/
@@ -1928,7 +2083,9 @@ footer
 		font-size: 600%;
 		line-height: 0.8em;
 		-webkit-transform-origin: 0 100%;
+		-moz-transform-origin: 0 100%;
 		-webkit-transform: rotate(-10deg);
+		-moz-transform: rotate(-10deg);
 	}
 		
 		#scene-10 .act-5.exit
@@ -1941,7 +2098,8 @@ footer
 			top: -1900px;
 			left: 100px;
 			font-size: 1600%;
-			-webkit-transform: rotate(-2deg);			
+			-webkit-transform: rotate(-2deg);
+			-moz-transform: rotate(-2deg);
 		}
 		
 		#scene-10 .act-5.position-1.position-2
@@ -1976,6 +2134,7 @@ footer
 		{
 			top: -8975px;
 			-webkit-transition: top 0.2s ease-out;
+			-moz-transition: top 0.2s ease-out;
 		}
 	
 		#scene-10 .act-5 span
@@ -2078,6 +2237,7 @@ footer
 		top: -133px;
 		left: 281px;
 		-webkit-transform: scale(0.135) rotate(-1.5deg);
+		-moz-transform: scale(0.135) rotate(-1.5deg);
 	}
 	
 		#scene-10 .act-6.exit
@@ -2090,12 +2250,14 @@ footer
 			top: -40px;
 			left: 315px;
 			-webkit-transform: scale(1) rotate(0deg);
+			-moz-transform: scale(1) rotate(0deg);
 		}
 		
 		#scene-10 .act-6.position-2
 		{
 			top: -100px;
 			-webkit-transition: top 0.2s ease-out;
+			-moz-transition: top 0.2s ease-out;
 		}
 		
 		#scene-10 .act-6 span
@@ -2103,13 +2265,17 @@ footer
 			display: inline-block;
 			position: relative;
 			-webkit-transform: scale(0);
+			-moz-transform: scale(0);
 			-webkit-transform-origin: 0 100%;
+			-moz-transform-origin: 0 100%;
 			-webkit-transition: -webkit-transform 0.1s ease-out;
+			-moz-transition: -moz-transform 0.1s ease-out;
 		}
 			
 			#scene-10 .act-6 span.action
 			{
 				-webkit-transform: scale(1);
+				-moz-transform: scale(1);
 			}
 			
 			#scene-10 .act-6 span:nth-of-type(1)
@@ -2118,6 +2284,7 @@ footer
 				letter-spacing: -0.09em;
 				left: 9px;
 				-webkit-transform-origin: 100% 100%;
+				-moz-transform-origin: 100% 100%;
 			}
 			
 			#scene-10 .act-6 span:nth-of-type(2)
@@ -2126,6 +2293,7 @@ footer
 				left: 2px;
 				font-size: 98%;
 				-webkit-transform-origin: 100% 100%;
+				-moz-transform-origin: 100% 100%;
 			}
 			
 			#scene-10 .act-6 span:nth-of-type(3)
@@ -2148,6 +2316,7 @@ footer
 				{
 					margin-right: -438px;
 					-webkit-transform-origin: 100% 100%;
+					-moz-transform-origin: 100% 100%;
 				}
 				
 			#scene-10 .act-6 span:nth-of-type(6)
@@ -2159,6 +2328,7 @@ footer
 				letter-spacing: -0.085em;
 				display: block;
 				-webkit-transform-origin: 50% 50%;
+				-moz-transform-origin: 50% 50%;
 			}
 			
 			#scene-10 .act-6 span:nth-of-type(7),
@@ -2173,6 +2343,7 @@ footer
 				#scene-10 .act-6 span:nth-of-type(8)
 				{
 					-webkit-transform-origin: 100% 100%;
+					-moz-transform-origin: 100% 100%;
 				}
 			
 			#scene-10 .act-6 span:nth-of-type(9)
@@ -2191,6 +2362,7 @@ footer
 				margin-bottom: -80px;
 				left: 205px;
 				-webkit-transform-origin: 100% 100%;
+				-moz-transform-origin: 100% 100%;
 			}
 			
 			#scene-10 .act-6 span:nth-of-type(11),
@@ -2209,6 +2381,7 @@ footer
 				left: 34px;
 				letter-spacing: 0.006em;
 				-webkit-transform-origin: 100% 100%;
+				-moz-transform-origin: 100% 100%;
 			}
 			
 			#scene-10 .act-6 span:nth-of-type(14)
@@ -2220,11 +2393,13 @@ footer
 				margin-right: -466px;
 				letter-spacing: -0.04em;
 				-webkit-transform: rotate(-92deg) scale(0);
+				-moz-transform: rotate(-92deg) scale(0);
 			}
 			
 				#scene-10 .act-6 span:nth-of-type(14).action
 				{
 					-webkit-transform: rotate(-92deg) scale(1);
+					-moz-transform: rotate(-92deg) scale(1);
 				}
 			
 			#scene-10 .act-6 span:nth-of-type(15),
@@ -2277,6 +2452,7 @@ footer
 				{
 					left: -520px;
 					-webkit-transform-origin: 100% 100%;
+					-moz-transform-origin: 100% 100%;
 				}
 				
 /*---------------------------------------- scene 10, act 7 -------------------------------------------*/
@@ -2294,14 +2470,16 @@ footer
 		
 		#scene-10 .act-7.action
 		{
-			-webkit-transition: opacity 0.4s linear;
 			opacity: 1;
+			-webkit-transition: opacity 0.4s linear;
+			-moz-transition: opacity 0.4s linear;
 		}
 		
 		#scene-10 .act-7.action.exit
 		{
 			opacity: 0;
 			-webkit-transition: opacity 0.5s linear;
+			-moz-transition: opacity 0.5s linear;
 		}
 	
 		#scene-10 .act-7 em
@@ -2315,6 +2493,7 @@ footer
 			{
 				opacity: 1;
 				-webkit-transition: opacity 0.4s linear;
+				-moz-transition: opacity 0.4s linear;
 			}
 			
 /*---------------------------------------- scene 10, act 8 -------------------------------------------*/
@@ -2334,6 +2513,7 @@ footer
 		{
 			opacity: 0;
 			-webkit-transition: opacity 0.5s linear;
+			-moz-transition: opacity 0.5s linear;
 		}
 		
 		#scene-10 .act-8 span
@@ -2347,6 +2527,7 @@ footer
 			{
 				opacity: 1;
 				-webkit-transition: opacity 0.1s linear;
+				-moz-transition: opacity 0.1s linear;
 			}
 		
 		#scene-10 .act-8 strong
@@ -2360,6 +2541,7 @@ footer
 			{
 				left: 0;
 				-webkit-transition: left 0.3s ease-out;
+				-moz-transition: left 0.3s ease-out;
 			}
 			
 			#scene-10 .act-8 strong span:nth-of-type(1)
@@ -2400,20 +2582,22 @@ footer
 			{
 				opacity: 1;
 				-webkit-transition: opacity 0.2s ease-out;
+				-moz-transition: opacity 0.2s ease-out;
 			}
 			
 			#scene-10 .act-9 span.spotlight
 			{
 				font-size: 170%;
 				-webkit-transition: font-size 0.1s ease-out;
+				-moz-transition: font-size 0.1s ease-out;
 			}
 			
 			#scene-10 .act-9 span:nth-of-type(4).spotlight
 			{
 				left: 45px;
 				font-size: 170%;
-				-webkit-transition: font-size 0.1s ease-out,
-									left 0.1s ease-out;
+				-webkit-transition: font-size 0.1s ease-out, left 0.1s ease-out;
+				-moz-transition: font-size 0.1s ease-out, left 0.1s ease-out;
 			}
 	
 /*---------------------------------------- scene 10, act 10 -------------------------------------------*/
@@ -2451,6 +2635,7 @@ footer
 			{
 				opacity: 1;
 				-webkit-transition: opacity 0.2s ease-out;
+				-moz-transition: opacity 0.2s ease-out;
 			}
 			
 /*---------------------------------------------- scene 11 --------------------------------------------*/
@@ -2471,11 +2656,15 @@ footer
 		left: 430px;
 		font-size: 250%;
 		-webkit-transform: scale(0);
+		-moz-transform: scale(0);
 		-webkit-transform-origin: 50% 50%;
+		-moz-transform-origin: 50% 50%;
 		-webkit-transition: -webkit-transform 0.1s ease-out;
+		-moz-transition: -moz-transform 0.1s ease-out;
 	}
 	
 		#scene-11 .act-1.action
 		{
 			-webkit-transform: scale(1);
+			-moz-transform: scale(1);
 		}
